@@ -1,0 +1,40 @@
+@import 'bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/nunito-sans.ttf");
+}
+
+@font-face {
+  font-family: "Nunito Italic";
+  src: url("./assets/fonts/nunito-italic.ttf");
+}
+
+$italic-font: "Nunito Italic";
+
+* {
+  transition: 0.3s;
+  font: 100% $italic-font;
+}
+
+#root {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* @keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+*/
