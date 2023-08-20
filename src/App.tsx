@@ -1,7 +1,7 @@
 import "./App.scss";
 
 function App() {
-  return <div>Check font CHECK FONT</div>;
+  return <div className="wrapper"></div>;
 }
 
 export default App;
