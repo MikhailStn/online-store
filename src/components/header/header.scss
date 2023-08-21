@@ -1,0 +1,35 @@
+.header {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(218, 219, 216);
+
+  &__content {
+    width: 100%;
+    max-width: 1920px;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+  }
+
+  &__nav_ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    column-gap: 20px;
+  }
+
+  &__nav_link {
+    cursor: pointer;
+    transition: 0s;
+    color: #000;
+    text-decoration: none;
+  }
+
+
+
+  &__nav_link_active {
+    border-bottom: 2px solid #000;
+  }
+}

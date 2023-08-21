@@ -1,3 +1,5 @@
+@import url("./components/header/header.scss");
+
 @font-face {
   font-family: "Nunito";
   src: url("./assets/fonts/nunito-sans.ttf");
@@ -15,7 +17,11 @@ $italic-font: "Nunito Italic";
   font: 100% "Nunito";
 }
 
+body {
+  margin: 0;
+}
+
 #root {
-  max-width: 1920px;
+  width: 100%;
   margin: 0 auto;
 }
