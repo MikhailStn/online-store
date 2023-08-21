@@ -2,14 +2,18 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-  background-color: rgb(218, 219, 216);
+  box-shadow: 0px 1px 10px rgba(48, 48, 48, 0.315);
+  position: fixed;
+  z-index: 10;
+  height: 90px;
 
   &__content {
     width: 100%;
-    max-width: 1920px;
+    max-width: 1280px;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 20px 40px;
     display: flex;
+    justify-content: space-between;
   }
 
   &__nav_ul {
@@ -18,6 +22,8 @@
     padding: 0;
     margin: 0;
     column-gap: 20px;
+    align-items: center;
+    height: 100%;
   }
 
   &__nav_link {
@@ -25,11 +31,51 @@
     transition: 0s;
     color: #000;
     text-decoration: none;
+    position: relative;
   }
 
+  &__nav_link::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 10;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #1976d2;
+  }
 
+  &__nav_link::after {
+    width: 0;
+    transition: 0.3s;
+  }
+
+  &__nav_link:hover:after {
+    width: 100%;
+  }
 
   &__nav_link_active {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #1976d2;
+  }
+
+  &__search_container {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  &__logo {
+    font-family: "Lobster";
+    font-size: 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    cursor: default;
+    color: #1976d2;
+  }
+
+  &__cart_icon_active {
+    background-color: #00000028;
+    border-radius: 50%;
   }
 }

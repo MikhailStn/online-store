@@ -1,7 +1,10 @@
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setActiveHome, setActiveStore } from "../../store/headerNavSlice";
+import { setActiveCart, setActiveHome, setActiveStore, setActiveBlog } from "../../store/headerNavSlice";
+import { IconButton, TextField, InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 export function Header() {
   const dispatch = useAppDispatch();
@@ -21,11 +24,31 @@ export function Header() {
                 Store
               </Link>
             </li>
+            <li className="header__nav_li">
+              <Link to="/blog" className={state.classNameBlog} onClick={() => dispatch(setActiveBlog())}>
+                Blog
+              </Link>
+            </li>
           </ul>
         </nav>
+        <p className="header__logo">Online Store</p>
         <div className="header__search_container">
-          <div className=""></div>
-          <Link to="/cart"></Link>
+          <TextField
+            variant="standard"
+            placeholder="Search"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          ></TextField>
+          <Link className={state.classNameCart} to="/cart" onClick={() => dispatch(setActiveCart())}>
+            <IconButton>
+              <ShoppingBagIcon></ShoppingBagIcon>
+            </IconButton>
+          </Link>
         </div>
       </div>
     </div>
