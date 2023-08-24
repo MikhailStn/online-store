@@ -1,0 +1,90 @@
+.novelties {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  background: linear-gradient(90deg, #2d6ecf 50%, #fff 50%);
+
+  &__content {
+    width: 100%;
+    max-width: 1280px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    display: flex;
+  }
+
+  &__aside {
+    width: 35%;
+    background-color: #2d6ecf;
+  }
+
+  &__aside_content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__main {
+    width: 65%;
+    background-color: #fff;
+  }
+
+  &__aside_title {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 34px;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  &__aside_list {
+    padding: 0;
+    list-style: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__aside_text {
+    font-weight: 100;
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  &__aside_buttons {
+    margin-top: auto;
+    display: flex;
+    justify-content: end;
+  }
+
+  &__aside_button {
+    width: 50px;
+    height: 50px;
+    background-color: #00000021;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  &__aside_button:hover {
+    background-color: #00000069;
+  }
+
+  &__main_content {
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  &__main_slider {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+}
