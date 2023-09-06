@@ -1,7 +1,7 @@
 import "./App.scss";
 import { MainPage } from "./pages/main/MainPage";
 import { Page404 } from "./pages/404/Page404";
-import { StorePage } from "./pages/shop/StorePage";
+import { StorePage } from "./pages/store/StorePage";
 import { CartPage } from "./pages/cart/CartPage";
 import { BlogPage } from "./pages/blog/BlogPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
