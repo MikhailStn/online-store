@@ -1,7 +1,7 @@
 import "./header.scss";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setActiveCart, setActiveHome, setActiveStore, setActiveBlog } from "../../store/headerNavSlice";
+import { setActiveCart, setActiveHome, setActiveStore, setActiveBlog } from "../../store/headerNav";
 import { IconButton, TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";

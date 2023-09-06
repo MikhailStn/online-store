@@ -1,8 +1,10 @@
 import { combineReducers, configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import headerNavSlice from "../store/headerNavSlice";
+import headerNavSlice from "../store/headerNav";
+import mainSliderSlice from "../store/mainSlider";
 
 const rootReducer = combineReducers({
   headerNav: headerNavSlice,
+  mainSlider: mainSliderSlice,
 });
 
 export const store = configureStore({

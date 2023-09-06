@@ -2,13 +2,17 @@ import "./mainNovelties.scss";
 import { ProductCard } from "../../productCard/productCard";
 import { products } from "../../../data/products";
 import { Product } from "../../../types/product";
+import { goNextNovSlide, goPrevNovSlide } from "../../../store/mainSlider";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+
+function shuffle(array: Product[]): Product[] {
+  return array.sort(() => Math.random() - 0.5);
+}
+const shuffledProducts = shuffle(products.slice(0));
 
 export function MainNovelties() {
-  function shuffle(array: Product[]): Product[] {
-    return array.sort(() => Math.random() - 0.5);
-  }
-  const shuffledProducts = shuffle(products);
-
+  const dispatch = useAppDispatch();
+  const state = useAppSelector((state) => state.mainSlider);
   return (
     <div className="novelties">
       <div className="novelties__content">
@@ -27,14 +31,28 @@ export function MainNovelties() {
               </li>
             </ul>
             <div className="novelties__aside_buttons">
-              <button className="novelties__aside_button">❮</button>
-              <button className="novelties__aside_button">❯</button>
+              <button
+                className="novelties__aside_button"
+                onClick={() => {
+                  dispatch(goPrevNovSlide());
+                }}
+              >
+                ❮
+              </button>
+              <button
+                className="novelties__aside_button"
+                onClick={() => {
+                  dispatch(goNextNovSlide());
+                }}
+              >
+                ❯
+              </button>
             </div>
           </div>
         </div>
         <div className="novelties__main">
           <div className="novelties__main_content">
-            <div className="novelties__main_slider">
+            <div className="novelties__main_slider" style={{ marginLeft: state.noveltiesMargin }}>
               {shuffledProducts.map((el) => (
                 <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price}></ProductCard>
               ))}
