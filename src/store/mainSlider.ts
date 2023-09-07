@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { products } from "../data/products";
-//import { products } from "../data/products";
 
 const mainSliderSlice = createSlice({
   name: "slider",

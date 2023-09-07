@@ -1,6 +1,7 @@
 import * as images from "./products-images";
+import { Product } from "../types/product";
 
-export const products = [
+export const products: Product[] = [
   {
     id: "hp005",
     name: "PC HP OMEN GT22",
@@ -9,7 +10,7 @@ export const products = [
     configuration: "Intel Core i9-12900K, 8 x 3.2GHz, 64 GB DDR4, GeForce RTX 3080 Ti, SSD 2000 GB, Windows 11 Home Single Language",
     brand: "HP",
     price: 5799,
-    stock: "2",
+    stock: 2,
     images: [images.hp005_0, images.hp005_1, images.hp005_2],
   },
   {
@@ -20,7 +21,7 @@ export const products = [
     configuration: "Intel Core i7-13700KF, 8 x 3.4GHz, 64 GB DDR5, GeForce RTX 4070 Ti, SSD 1000 GB, Windows 11 Home Single Language",
     brand: "LYAMBDA",
     price: 3399,
-    stock: "3",
+    stock: 3,
     images: [images.lyambdaFrontier_0, images.lyambdaFrontier_1, images.lyambdaFrontier_2],
   },
   {
@@ -31,7 +32,7 @@ export const products = [
     configuration: "Intel Core i9-13900K, 8 x 3GHz, 64 GB DDR5, GeForce RTX 4090, SSD 1000 GB, Windows 11 Home Single Language",
     brand: "LYAMBDA",
     price: 4999,
-    stock: "2",
+    stock: 2,
     images: [images.lymbdaInferno_0, images.lymbdaInferno_1, images.lymbdaInferno_2],
   },
   {
@@ -42,7 +43,7 @@ export const products = [
     configuration: "Intel Core i7-12700KF, 8 x 3.6GHz, 32 GB DDR5, GeForce RTX 4090, SSD 2000 GB",
     brand: "ARDOR",
     price: 3199,
-    stock: "4",
+    stock: 4,
     images: [images.evo034_0, images.evo034_1, images.evo034_2],
   },
   {
@@ -53,7 +54,7 @@ export const products = [
     configuration: "Intel Core i5-12400F, 6 x 2.5GHz, 32GB DDR4, GeForce RTX 3070 Ti, 1000GB SSD, No OS",
     brand: "ARDOR",
     price: 1299,
-    stock: "5",
+    stock: 5,
     images: [images.rage_h301_0, images.rage_h301_1, images.rage_h301_2],
   },
   {
@@ -64,7 +65,7 @@ export const products = [
     configuration: "Intel Core i3-10100F, 4 x 3.6 GHz, 16 GB DDR4, GeForce GTX 1650, 500 GB SSD, no OS",
     brand: "ARDOR",
     price: 499,
-    stock: "8",
+    stock: 8,
     images: [images.neo_m120_0, images.neo_m120_1, images.neo_m120_2],
   },
   {
@@ -75,7 +76,7 @@ export const products = [
     configuration: "Intel Core i7-12700KF, 8 x 3.6GHz, 32GB DDR5, GeForce RTX 3070, 1000GB SSD, No OS",
     brand: "ARDOR",
     price: 2449,
-    stock: "6",
+    stock: 6,
     images: [images.gear_a001_0, images.gear_a001_1, images.gear_a001_2],
   },
 ];
