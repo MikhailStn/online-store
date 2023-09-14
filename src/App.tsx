@@ -46,7 +46,7 @@ function App() {
               name={state.name}
               description={state.description}
               configuration={state.configuration}
-              brand={state.configuration}
+              brand={state.brand}
               price={state.price}
               stock={state.stock}
               images={state.images}
