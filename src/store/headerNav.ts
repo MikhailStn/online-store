@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const headerNavSlice = createSlice({
-  name: "headerNav",
+  name: "header-nav",
   initialState: {
     classNameHome: "header__nav_link header__nav_link_active",
     classNameStore: "header__nav_link",

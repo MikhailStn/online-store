@@ -5,16 +5,10 @@
     padding: 40px;
     box-sizing: border-box;
     margin: 0 auto;
-  }
-
-  &__title {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.453);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 32px;
-    margin-bottom: 60px;
-    color: rgb(0, 0, 0);
-    text-shadow: 1px 1px 2px #1976d2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    column-gap: 40px;
   }
 
   &__carousel {
@@ -30,7 +24,7 @@
     max-width: 60%;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 40px;
   }
 
   &__info_title {
@@ -44,12 +38,11 @@
     margin: 0;
   }
 
-  &__info_brand {
-    font-size: 52px;
-    font-weight: 800;
+  &__info_name {
+    font-size: 24px;
+    font-weight: 600;
     margin: 0;
     color: #1976d2;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
   }
 
   &__info_price_stock {
@@ -62,6 +55,13 @@
     font-size: 24px;
     font-family: "Nunito Italic";
     padding-left: 10px;
+    color: #d21919;
+  }
+
+  &__info_sub {
+    font-size: 23px;
+    margin: 0;
+    border-bottom: 1px solid rgba(48, 48, 48, 0.315);
   }
 }
 
