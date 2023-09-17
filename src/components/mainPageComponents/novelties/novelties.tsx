@@ -1,4 +1,4 @@
-import "./mainNovelties.scss";
+import "./novelties.scss";
 import { ProductCard } from "../../productCard/productCard";
 import { products } from "../../../data/products";
 import { Product } from "../../../types/product";
@@ -10,7 +10,7 @@ function shuffle(array: Product[]): Product[] {
 }
 const shuffledProducts = shuffle(products.slice(0));
 
-export function MainNovelties() {
+export function Novelties() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.mainSlider);
   return (

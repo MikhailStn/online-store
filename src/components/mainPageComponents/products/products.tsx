@@ -1,10 +1,10 @@
-import "./mainProducts.scss";
+import "./products.scss";
 import { Card } from "./card";
 import image_1 from "../../../assets/images/products/hp_005/0.png";
 import image_2 from "../../../assets/images/products/rage_h301/0.jpg";
 import image_3 from "../../../assets/images/products/lyambda_frontier/0.jpg";
 
-export function MainProducts() {
+export function Products() {
   return (
     <div className="products">
       <div className="products__content">

@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState: string[] = [];
+
 const cartListSlice = createSlice({
   name: "cart-list",
-  initialState: ["evo-x036", "neo-m120", "gear-a001"],
+  initialState: initialState,
   reducers: {
     addProduct(state, action) {
       state.push(action.payload);
-      console.log(state)
     },
     removeProduct(state, action) {
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
-      console.log(state)
     },
   },
 });

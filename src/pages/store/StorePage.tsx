@@ -1,8 +1,8 @@
 import "./StorePage.scss";
 import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
-import { Filters } from "../../components/storeComponents/filters/filters";
-import { ProductsContainer } from "../../components/storeComponents/products/products";
+import { Filters } from "../../components/storePageComponents/filters/filters";
+import { Products } from "../../components/storePageComponents/products/products";
 
 export function StorePage() {
   return (
@@ -13,7 +13,7 @@ export function StorePage() {
           <div className="store__content">
             <h2 className="store__title main__title">store</h2>
             <Filters />
-            <ProductsContainer />
+            <Products />
           </div>
         </div>
       </main>

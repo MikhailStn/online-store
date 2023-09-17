@@ -1,19 +1,19 @@
 import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
-import { MainOverlay } from "../../components/mainPage/mainOverlay/mainOverlay";
-import { MainProducts } from "../../components/mainPage/mainProducts/mainProducts";
-import { MainNovelties } from "../../components/mainPage/mainNovelties/mainNovelties";
-import { MainRecommend } from "../../components/mainPage/mainRecommend/mainRecommend";
+import { Overlay } from "../../components/mainPageComponents/overlay/overlay";
+import { Products } from "../../components/mainPageComponents/products/products";
+import { Novelties } from "../../components/mainPageComponents/novelties/novelties";
+import { Recommend } from "../../components/mainPageComponents/recommend/recommend";
 
 export function MainPage() {
   return (
     <div id="main-page">
       <Header />
       <main className="main">
-        <MainOverlay />
-        <MainProducts />
-        <MainNovelties />
-        <MainRecommend />
+        <Overlay />
+        <Products />
+        <Novelties />
+        <Recommend />
       </main>
       <Footer />
     </div>

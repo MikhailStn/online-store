@@ -1,4 +1,4 @@
-import "./mainRecommend.scss";
+import "./recommend.scss";
 import { products } from "../../../data/products";
 import { ProductCard } from "../../productCard/productCard";
 import { Product } from "../../../types/product";
@@ -10,7 +10,7 @@ function shuffle(array: Product[]): Product[] {
 }
 const shuffledProducts = shuffle(products.slice(0));
 
-export function MainRecommend() {
+export function Recommend() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.mainSlider);
   return (
@@ -53,7 +53,7 @@ export function MainRecommend() {
           <div className="recommend__main_content">
             <div className="recommend__main_slider" style={{ marginLeft: state.recommendMargin }}>
               {shuffledProducts.map((el) => (
-                <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price}></ProductCard>
+                <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price} id={el.id}></ProductCard>
               ))}
             </div>
           </div>

@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { changePath } from "../../store/productPath";
 import { setNonActive } from "../../store/headerNav";
 import { addProduct, removeProduct } from "../../store/cartList";
+import { products } from "../../data/products";
 
 type Props = {
   image: string;
@@ -16,7 +17,26 @@ type Props = {
 export function ProductCard(props: Props) {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.productPath);
-  const products = useAppSelector((state) => state.cartList);
+  const productsArray = useAppSelector((state) => state.cartList);
+
+  const remove = () => {
+    dispatch(removeProduct(props.id));
+    products.forEach((el) => {
+      if (el.id == props.id) {
+        el.quantity = 0;
+      }
+    });
+  };
+
+  const add = () => {
+    dispatch(addProduct(props.id));
+    products.forEach((el) => {
+      if (el.id == props.id) {
+        el.quantity = 1;
+      }
+    });
+  };
+
   return (
     <Link className="product__link" to={state.path}>
       <div
@@ -35,11 +55,10 @@ export function ProductCard(props: Props) {
           variant="outlined"
           onClick={(e) => {
             e.preventDefault();
-            products.includes(props.id) ? dispatch(removeProduct(props.id)) : dispatch(addProduct(props.id));
-            console.log(products)
+            productsArray.includes(props.id) ? remove() : add();
           }}
         >
-          {products.includes(props.id) ? "Remove from cart" : "Add to cart"}
+          {productsArray.includes(props.id) ? "Remove from cart" : "Add to cart"}
         </Button>
       </div>
     </Link>

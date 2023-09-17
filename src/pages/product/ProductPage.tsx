@@ -5,8 +5,32 @@ import { Footer } from "../../components/footer/footer";
 import { Product } from "../../types/product";
 import { Carousel } from "react-responsive-carousel";
 import { Button } from "@mui/material";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { addProduct, removeProduct } from "../../store/cartList";
+import { products } from "../../data/products";
 
 export function ProductPage(props: Product) {
+  const dispatch = useAppDispatch();
+  const productsArray = useAppSelector((state) => state.cartList);
+
+  const remove = () => {
+    dispatch(removeProduct(props.id));
+    products.forEach((el) => {
+      if (el.id == props.id) {
+        el.quantity = 0;
+      }
+    });
+  };
+
+  const add = () => {
+    dispatch(addProduct(props.id));
+    products.forEach((el) => {
+      if (el.id == props.id) {
+        el.quantity = 1;
+      }
+    });
+  };
+
   return (
     <div>
       <Header />
@@ -40,9 +64,10 @@ export function ProductPage(props: Product) {
                 sx={{ margin: "20px 0" }}
                 onClick={(e) => {
                   e.preventDefault();
+                  productsArray.includes(props.id) ? remove() : add();
                 }}
               >
-                Add to cart
+                {productsArray.includes(props.id) ? "Remove from cart" : "Add to cart"}
               </Button>
             </div>
           </div>

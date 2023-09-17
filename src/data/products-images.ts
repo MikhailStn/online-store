@@ -23,8 +23,8 @@ import neo_m120_1 from "../assets/images/products/neo_m120/1.jpg";
 import neo_m120_2 from "../assets/images/products/neo_m120/2.jpg";
 
 import gear_a001_0 from "../assets/images/products/gear_a001/0.jpg";
-import gear_a001_1 from "../assets/images/products/gear_a001/0.jpg";
-import gear_a001_2 from "../assets/images/products/gear_a001/0.jpg";
+import gear_a001_1 from "../assets/images/products/gear_a001/1.jpg";
+import gear_a001_2 from "../assets/images/products/gear_a001/2.jpg";
 
 export {
   hp005_0,

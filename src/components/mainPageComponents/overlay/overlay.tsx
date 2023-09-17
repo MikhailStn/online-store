@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import "./mainOverlay.scss";
+import "./overlay.scss";
 
-export function MainOverlay() {
+export function Overlay() {
   const [style, setStyle] = useState({ opacity: 0, marginTop: "-100px" });
 
   useEffect(() => {

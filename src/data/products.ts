@@ -12,6 +12,7 @@ export const products: Product[] = [
     price: 5799,
     stock: 2,
     images: [images.hp005_0, images.hp005_1, images.hp005_2],
+    quantity: 0,
   },
   {
     id: "lyambda-frontier",
@@ -23,6 +24,7 @@ export const products: Product[] = [
     price: 3399,
     stock: 3,
     images: [images.lyambdaFrontier_0, images.lyambdaFrontier_1, images.lyambdaFrontier_2],
+    quantity: 0,
   },
   {
     id: "lyambda-inferno",
@@ -34,6 +36,7 @@ export const products: Product[] = [
     price: 4999,
     stock: 2,
     images: [images.lymbdaInferno_0, images.lymbdaInferno_1, images.lymbdaInferno_2],
+    quantity: 0,
   },
   {
     id: "evo-x036",
@@ -45,6 +48,7 @@ export const products: Product[] = [
     price: 3199,
     stock: 4,
     images: [images.evo034_0, images.evo034_1, images.evo034_2],
+    quantity: 0,
   },
   {
     id: "rage-h301",
@@ -56,6 +60,7 @@ export const products: Product[] = [
     price: 1299,
     stock: 5,
     images: [images.rage_h301_0, images.rage_h301_1, images.rage_h301_2],
+    quantity: 0,
   },
   {
     id: "neo-m120",
@@ -67,6 +72,7 @@ export const products: Product[] = [
     price: 499,
     stock: 8,
     images: [images.neo_m120_0, images.neo_m120_1, images.neo_m120_2],
+    quantity: 0,
   },
   {
     id: "gear-a001",
@@ -78,5 +84,6 @@ export const products: Product[] = [
     price: 2449,
     stock: 6,
     images: [images.gear_a001_0, images.gear_a001_1, images.gear_a001_2],
+    quantity: 0,
   },
 ];

@@ -16,7 +16,7 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(changePath(localStorage.getItem("curr-product")));
+    if (localStorage.getItem("curr-product")) dispatch(changePath(localStorage.getItem("curr-product")));
     if (location.pathname == "/store") {
       dispatch(setActiveStore());
     } else if (location.pathname == "/blog") {

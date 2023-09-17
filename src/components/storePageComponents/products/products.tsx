@@ -2,7 +2,7 @@ import "./products.scss";
 import { products } from "../../../data/products";
 import { ProductCard } from "../../productCard/productCard";
 
-export function ProductsContainer() {
+export function Products() {
   return (
     <div className="items">
       {products.map((el) => {

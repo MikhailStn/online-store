@@ -9,6 +9,7 @@ import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 export function Header() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.headerNav);
+  const products = useAppSelector((state) => state.cartList);
   return (
     <div className="header">
       <div className="header__content">
@@ -45,8 +46,9 @@ export function Header() {
             }}
           ></TextField>
           <Link className={state.classNameCart} to="/cart" onClick={() => dispatch(setActiveCart())}>
-            <IconButton>
-              <ShoppingBagIcon></ShoppingBagIcon>
+            <IconButton style={{ width: "100%", height: "100%" }}>
+              <ShoppingBagIcon style={{ width: "100px", height: "100%" }}></ShoppingBagIcon>
+              <span className="header__cart_counter">{products.length}</span>
             </IconButton>
           </Link>
         </div>
