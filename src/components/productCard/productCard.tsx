@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { changePath } from "../../store/productPath";
 import { setNonActive } from "../../store/headerNav";
 import { addProduct, removeProduct } from "../../store/cartList";
-import { products } from "../../data/products";
+import { setQuantity, removeQuantity } from "../../store/productsList";
 
 type Props = {
   image: string;
@@ -21,20 +21,12 @@ export function ProductCard(props: Props) {
 
   const remove = () => {
     dispatch(removeProduct(props.id));
-    products.forEach((el) => {
-      if (el.id == props.id) {
-        el.quantity = 0;
-      }
-    });
+    dispatch(removeQuantity(props.id));
   };
 
   const add = () => {
     dispatch(addProduct(props.id));
-    products.forEach((el) => {
-      if (el.id == props.id) {
-        el.quantity = 1;
-      }
-    });
+    dispatch(setQuantity(props.id));
   };
 
   return (

@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import { Button } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addProduct, removeProduct } from "../../store/cartList";
-import { products } from "../../data/products";
+import { incrementQuantity, decrementQuantity } from "../../store/productsList";
 
 export function ProductPage(props: Product) {
   const dispatch = useAppDispatch();
@@ -15,20 +15,12 @@ export function ProductPage(props: Product) {
 
   const remove = () => {
     dispatch(removeProduct(props.id));
-    products.forEach((el) => {
-      if (el.id == props.id) {
-        el.quantity = 0;
-      }
-    });
+    dispatch(decrementQuantity(props.id));
   };
 
   const add = () => {
     dispatch(addProduct(props.id));
-    products.forEach((el) => {
-      if (el.id == props.id) {
-        el.quantity = 1;
-      }
-    });
+    dispatch(incrementQuantity(props.id));
   };
 
   return (
