@@ -10,8 +10,8 @@ export function StorePage() {
       <Header></Header>
       <main className="main">
         <div className="store__wrapper">
+          <h2 className="store__title main__title">store</h2>
           <div className="store__content">
-            <h2 className="store__title main__title">store</h2>
             <Filters />
             <Products />
           </div>

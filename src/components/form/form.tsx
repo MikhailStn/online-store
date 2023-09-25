@@ -3,7 +3,7 @@ import { Input, Button } from "@mui/material";
 import { useAppSelector } from "../../app/hooks";
 
 export function Form() {
-  const prods = useAppSelector((state) => state.productList);
+  const prods = useAppSelector((state) => state.productList.prodList);
   const summ = prods.reduce((acc, el) => {
     const summ = acc + el.quantity * el.price;
     return summ;

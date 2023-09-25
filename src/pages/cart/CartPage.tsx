@@ -13,7 +13,7 @@ import { removeProduct } from "../../store/cartList";
 
 export function CartPage() {
   const state = useAppSelector((state) => state.productPath);
-  const products = useAppSelector((state) => state.productList);
+  const products = useAppSelector((state) => state.productList.prodList);
   const items = useAppSelector((state) => state.cartList);
   const dispatch = useAppDispatch();
   const productsArray: Product[] = [];

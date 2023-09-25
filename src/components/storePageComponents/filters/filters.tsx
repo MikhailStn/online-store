@@ -1,51 +1,113 @@
 import "./filters.scss";
-import { Slider, Box, Button } from "@mui/material";
-import { useState } from "react";
-import { products } from "../../../data/products";
+import { Slider, Box } from "@mui/material";
+import { useEffect, useState } from "react";
+import { products, brands } from "../../../data/products";
+import { useAppDispatch } from "../../../app/hooks";
+import { setFilter } from "../../../store/productsList";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+
+const currBrands = brands.slice(0);
 
 export function Filters() {
-  const [areFiltersVisible, setFiltersVisibility] = useState(false);
-  const [filterBtn, setFilterBtn] = useState("filters ▼");
-  const [filtersClassname, setFiltersClassname] = useState("filters__hidden");
+  const dispatch = useAppDispatch();
 
-  const prices: number[] = [];
-  products.forEach((el) => prices.push(el.price));
-  const minPrice = () => prices.reduce((x, y) => Math.min(x, y));
-  const maxPrice = () => prices.reduce((x, y) => Math.max(x, y));
+  const pricesArr: number[] = [];
+  products.forEach((el) => pricesArr.push(el.price));
+  const minPrice = () => pricesArr.reduce((x, y) => Math.min(x, y));
+  const maxPrice = () => pricesArr.reduce((x, y) => Math.max(x, y));
+  const [price, setPrice] = useState<number[]>([minPrice(), maxPrice()]);
 
-  const [value, setValue] = useState<number[]>([20, 37]);
+  const stockArr: number[] = [];
+  products.forEach((el) => stockArr.push(el.stock));
+  const minStock = () => stockArr.reduce((x, y) => Math.min(x, y));
+  const maxStock = () => stockArr.reduce((x, y) => Math.max(x, y));
+  const [stock, setStock] = useState<number[]>([minStock(), maxStock()]);
 
-  const handleChange = (_event: Event, newValue: number | number[]) => {
-    setValue(newValue as number[]);
+  const handleChangePrice = (_event: Event, newValue: number | number[]) => {
+    setPrice(newValue as number[]);
   };
 
-  const changeVisibility = () => {
-    if (areFiltersVisible) {
-      setFiltersVisibility(false);
-      setFilterBtn("filters ▼");
-      setFiltersClassname("filters__hidden");
-    } else {
-      setFiltersVisibility(true);
-      setFilterBtn("filters ▲");
-      setFiltersClassname("filters__hidden filters__visible");
+  const handleChangeStock = (_event: Event, newValue: number | number[]) => {
+    setStock(newValue as number[]);
+  };
+
+  const updateStore = () => {
+    const sortedArray = [];
+    for (let i = 0; i < products.length; i++) {
+      if (
+        products[i].price <= price[1] &&
+        products[i].price >= price[0] &&
+        products[i].stock <= stock[1] &&
+        products[i].stock >= stock[0] &&
+        currBrands.includes(products[i].brand)
+      ) {
+        sortedArray.push(products[i]);
+      }
     }
+    dispatch(setFilter(sortedArray));
+  };
+
+  useEffect(() => {
+    updateStore();
+  }, [price, stock]);
+
+  const addBrand = (el: string) => {
+    currBrands.push(el);
+    updateStore();
+  };
+
+  const removeBrand = (el: string) => {
+    const i = currBrands.indexOf(el);
+    currBrands.splice(i, 1);
+    updateStore();
   };
 
   return (
     <div className="filters">
-      <Button sx={{ textAlign: "start", padding: "0", height: "40px" }} variant="text" onClick={changeVisibility}>
-        {filterBtn}
-      </Button>
+      <p className="filters__sub">filters</p>
       <div className="filters__content">
-        <div className={filtersClassname}>
+        <div className="filters__visible">
           <p>Price</p>
-          <Box sx={{ maxWidth: "300px", marginLeft: "25px" }}>
-            <Slider value={value} onChange={handleChange} valueLabelDisplay="auto" />
+          <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
+            <Slider
+              max={maxPrice()}
+              min={minPrice()}
+              value={price}
+              onChange={handleChangePrice}
+              valueLabelDisplay="auto"
+            />
           </Box>
           <p>Stock</p>
-          <Box sx={{ maxWidth: "300px", marginLeft: "25px" }}>
-            <Slider value={[1, 100]} />
+          <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
+            <Slider
+              max={maxStock()}
+              min={minStock()}
+              value={stock}
+              onChange={handleChangeStock}
+              valueLabelDisplay="auto"
+            />
           </Box>
+          <p>Brands</p>
+          <FormGroup sx={{ paddingLeft: "15px" }}>
+            {brands.map((el) => {
+              return (
+                <FormControlLabel
+                  key={el}
+                  control={
+                    <Checkbox
+                      defaultChecked
+                      onChange={(e) => {
+                        e.target.checked ? addBrand(el) : removeBrand(el);
+                      }}
+                    />
+                  }
+                  label={el}
+                />
+              );
+            })}
+          </FormGroup>
         </div>
       </div>
     </div>
