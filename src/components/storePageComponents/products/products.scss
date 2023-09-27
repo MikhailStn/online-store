@@ -7,16 +7,11 @@
   justify-content: space-between;
   padding-bottom: 40px;
 
-  &__sub {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.379);
-  }
-
   &__wrapper {
     border-top: 1px solid rgba(0, 0, 0, 0.137);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
     width: 70%;
     max-width: 795px;
+    height: max-content;
   }
 
   &__filters {
@@ -24,43 +19,25 @@
     display: flex;
     padding: 20px 0;
     align-items: center;
-    justify-content: space-between;
-  }
-
-  &__filters_view {
-    flex-direction: row !important;
-    column-gap: 10px;
-    border: 1px solid rgba(128, 128, 128, 0.393) !important;
-    padding: 6px !important;
-    border-radius: 5px !important;
-    width: 150px;
-    justify-content: space-around;
-  }
-
-  &__filters_view:hover {
-    background-color: #f0f4f8;
-  }
-
-  &__filters_radio_btns {
-    flex-direction: row !important;
-    column-gap: 20px;
-  }
-
-  &__filters_radio {
-    margin: 0 !important;
-    transition: 0.3s;
-    border-radius: 5px;
-  }
-
-  &__filters_view_sub {
-    line-height: 1 !important;
-    display: flex;
-    align-items: center;
+    justify-content: center;
+    position: relative;
   }
 
   &__filters_select {
     width: 160px !important;
     height: 40px !important;
+    position: absolute !important;
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.322);
+  }
+
+  &__filters_option {
+    cursor: pointer !important;
+    height: 100px;
   }
 
   &__filters_counter {

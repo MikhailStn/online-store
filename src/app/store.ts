@@ -3,14 +3,16 @@ import headerNavSlice from "../store/headerNav";
 import mainSliderSlice from "../store/mainSlider";
 import productPathSlice from "../store/productPath";
 import cartListSlice from "../store/cartList";
-import productsList from "../store/productsList";
+import productsListSlice from "../store/productsList";
+import filtersOptionsSlice from "../store/filtersOptions";
 
 const rootReducer = combineReducers({
   headerNav: headerNavSlice,
   mainSlider: mainSliderSlice,
   productPath: productPathSlice,
   cartList: cartListSlice,
-  productList: productsList,
+  productList: productsListSlice,
+  filtersOptions: filtersOptionsSlice,
 });
 
 export const store = configureStore({

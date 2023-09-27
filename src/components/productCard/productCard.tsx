@@ -12,6 +12,7 @@ type Props = {
   name: string;
   price: number | string;
   id: string;
+  stock: number;
 };
 
 export function ProductCard(props: Props) {
@@ -52,6 +53,7 @@ export function ProductCard(props: Props) {
         >
           {productsArray.includes(props.id) ? "Remove from cart" : "Add to cart"}
         </Button>
+        <span className="product__stock">Stock: {props.stock}</span>
       </div>
     </Link>
   );

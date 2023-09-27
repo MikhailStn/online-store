@@ -2,8 +2,7 @@ import "./header.scss";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { setActiveCart, setActiveHome, setActiveStore, setActiveBlog } from "../../store/headerNav";
-import { IconButton, TextField, InputAdornment } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { IconButton } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 export function Header() {
@@ -34,17 +33,6 @@ export function Header() {
         </nav>
         <p className="header__logo">Online Store</p>
         <div className="header__search_container">
-          <TextField
-            variant="standard"
-            placeholder="Search"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          ></TextField>
           <Link className={state.classNameCart} to="/cart" onClick={() => dispatch(setActiveCart())}>
             <IconButton style={{ width: "100%", height: "100%" }}>
               <ShoppingBagIcon style={{ width: "100px", height: "100%" }}></ShoppingBagIcon>

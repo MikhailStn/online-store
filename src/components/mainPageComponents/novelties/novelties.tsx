@@ -54,7 +54,14 @@ export function Novelties() {
           <div className="novelties__main_content">
             <div className="novelties__main_slider" style={{ marginLeft: state.noveltiesMargin }}>
               {shuffledProducts.map((el) => (
-                <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price} id={el.id}></ProductCard>
+                <ProductCard
+                  key={el.id}
+                  image={el.images[0]}
+                  name={el.name}
+                  price={el.price}
+                  id={el.id}
+                  stock={el.stock}
+                ></ProductCard>
               ))}
             </div>
           </div>

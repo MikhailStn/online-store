@@ -21,12 +21,14 @@ export function Recommend() {
             <h2 className="recommend__aside_title">we recommend</h2>
             <ul className="recommend__aside_list">
               <li className="recommend__aside_text">
-                Future-Proof Features: Stay ahead of the curve with features that are designed for tomorrow's challenges. From AI-powered
-                assistance to intuitive touch controls, our computers are built to adapt and evolve with your needs.
+                Future-Proof Features: Stay ahead of the curve with features that are designed for tomorrow's
+                challenges. From AI-powered assistance to intuitive touch controls, our computers are built to adapt and
+                evolve with your needs.
               </li>
               <li className="recommend__aside_text">
-                Instant Connectivity: Stay connected with blazing-fast Wi-Fi and next-gen networking capabilities. Whether you're video
-                conferencing, streaming, or online gaming, you'll experience a smooth and stable connection every time.
+                Instant Connectivity: Stay connected with blazing-fast Wi-Fi and next-gen networking capabilities.
+                Whether you're video conferencing, streaming, or online gaming, you'll experience a smooth and stable
+                connection every time.
               </li>
             </ul>
             <div className="recommend__aside_buttons">
@@ -53,7 +55,14 @@ export function Recommend() {
           <div className="recommend__main_content">
             <div className="recommend__main_slider" style={{ marginLeft: state.recommendMargin }}>
               {shuffledProducts.map((el) => (
-                <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price} id={el.id}></ProductCard>
+                <ProductCard
+                  key={el.id}
+                  image={el.images[0]}
+                  name={el.name}
+                  price={el.price}
+                  id={el.id}
+                  stock={el.stock}
+                ></ProductCard>
               ))}
             </div>
           </div>

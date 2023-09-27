@@ -1,74 +1,163 @@
 import "./filters.scss";
 import { Slider, Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { products, brands } from "../../../data/products";
-import { useAppDispatch } from "../../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { setFilter } from "../../../store/productsList";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-
-const currBrands = brands.slice(0);
+import { TextField, InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import { setPrice, setStock, setBrands, setSearchValue } from "../../../store/filtersOptions";
 
 export function Filters() {
   const dispatch = useAppDispatch();
+  const price = useAppSelector((state) => state.filtersOptions.price);
+  const stock = useAppSelector((state) => state.filtersOptions.stock);
+  const activeBrands = useAppSelector((state) => state.filtersOptions.brands);
+  const sortBy = useAppSelector((state) => state.filtersOptions.sortBy);
+  const searchValue = useAppSelector((state) => state.filtersOptions.searchValue);
 
   const pricesArr: number[] = [];
   products.forEach((el) => pricesArr.push(el.price));
   const minPrice = () => pricesArr.reduce((x, y) => Math.min(x, y));
   const maxPrice = () => pricesArr.reduce((x, y) => Math.max(x, y));
-  const [price, setPrice] = useState<number[]>([minPrice(), maxPrice()]);
 
   const stockArr: number[] = [];
   products.forEach((el) => stockArr.push(el.stock));
   const minStock = () => stockArr.reduce((x, y) => Math.min(x, y));
   const maxStock = () => stockArr.reduce((x, y) => Math.max(x, y));
-  const [stock, setStock] = useState<number[]>([minStock(), maxStock()]);
 
   const handleChangePrice = (_event: Event, newValue: number | number[]) => {
-    setPrice(newValue as number[]);
+    dispatch(setPrice(newValue as number[]));
   };
 
   const handleChangeStock = (_event: Event, newValue: number | number[]) => {
-    setStock(newValue as number[]);
+    dispatch(setStock(newValue as number[]));
   };
 
   const updateStore = () => {
     const sortedArray = [];
-    for (let i = 0; i < products.length; i++) {
-      if (
-        products[i].price <= price[1] &&
-        products[i].price >= price[0] &&
-        products[i].stock <= stock[1] &&
-        products[i].stock >= stock[0] &&
-        currBrands.includes(products[i].brand)
-      ) {
-        sortedArray.push(products[i]);
-      }
+    switch (sortBy) {
+      case "name":
+        {
+          const sortedByName = [...products].sort((a, b) => (a.name > b.name ? 1 : -1));
+          for (let i = 0; i < sortedByName.length; i++) {
+            if (
+              sortedByName[i].price <= price[1] &&
+              sortedByName[i].price >= price[0] &&
+              sortedByName[i].stock <= stock[1] &&
+              sortedByName[i].stock >= stock[0] &&
+              activeBrands.includes(sortedByName[i].brand) &&
+              sortedByName[i].name.includes(searchValue.toUpperCase())
+            ) {
+              sortedArray.push(sortedByName[i]);
+            }
+          }
+        }
+        break;
+
+      case "price-asc":
+        {
+          const sortedByPriceAsc = [...products].sort((a, b) => (a.price > b.price ? 1 : -1));
+          for (let i = 0; i < sortedByPriceAsc.length; i++) {
+            if (
+              sortedByPriceAsc[i].price <= price[1] &&
+              sortedByPriceAsc[i].price >= price[0] &&
+              sortedByPriceAsc[i].stock <= stock[1] &&
+              sortedByPriceAsc[i].stock >= stock[0] &&
+              activeBrands.includes(sortedByPriceAsc[i].brand) &&
+              sortedByPriceAsc[i].name.includes(searchValue.toUpperCase())
+            ) {
+              sortedArray.push(sortedByPriceAsc[i]);
+            }
+          }
+        }
+        break;
+
+      case "price-desc":
+        {
+          const sortedByPriceDesc = [...products].sort((a, b) => (a.price > b.price ? -1 : 1));
+          for (let i = 0; i < sortedByPriceDesc.length; i++) {
+            if (
+              sortedByPriceDesc[i].price <= price[1] &&
+              sortedByPriceDesc[i].price >= price[0] &&
+              sortedByPriceDesc[i].stock <= stock[1] &&
+              sortedByPriceDesc[i].stock >= stock[0] &&
+              activeBrands.includes(sortedByPriceDesc[i].brand) &&
+              sortedByPriceDesc[i].name.includes(searchValue.toUpperCase())
+            ) {
+              sortedArray.push(sortedByPriceDesc[i]);
+            }
+          }
+        }
+        break;
+
+      case "stock-desc":
+        {
+          const sortedByStockDesc = [...products].sort((a, b) => (a.stock > b.stock ? -1 : 1));
+          for (let i = 0; i < sortedByStockDesc.length; i++) {
+            if (
+              sortedByStockDesc[i].price <= price[1] &&
+              sortedByStockDesc[i].price >= price[0] &&
+              sortedByStockDesc[i].stock <= stock[1] &&
+              sortedByStockDesc[i].stock >= stock[0] &&
+              activeBrands.includes(sortedByStockDesc[i].brand) &&
+              sortedByStockDesc[i].name.includes(searchValue.toUpperCase())
+            ) {
+              sortedArray.push(sortedByStockDesc[i]);
+            }
+          }
+        }
+        break;
+
+      case "stock-asc":
+        {
+          const sortedByStockAsc = [...products].sort((a, b) => (a.stock > b.stock ? 1 : -1));
+          for (let i = 0; i < sortedByStockAsc.length; i++) {
+            if (
+              sortedByStockAsc[i].price <= price[1] &&
+              sortedByStockAsc[i].price >= price[0] &&
+              sortedByStockAsc[i].stock <= stock[1] &&
+              sortedByStockAsc[i].stock >= stock[0] &&
+              activeBrands.includes(sortedByStockAsc[i].brand) &&
+              sortedByStockAsc[i].name.includes(searchValue.toUpperCase())
+            ) {
+              sortedArray.push(sortedByStockAsc[i]);
+            }
+          }
+        }
+        break;
     }
     dispatch(setFilter(sortedArray));
   };
 
   useEffect(() => {
     updateStore();
-  }, [price, stock]);
-
-  const addBrand = (el: string) => {
-    currBrands.push(el);
-    updateStore();
-  };
-
-  const removeBrand = (el: string) => {
-    const i = currBrands.indexOf(el);
-    currBrands.splice(i, 1);
-    updateStore();
-  };
+  }, [price, stock, sortBy, searchValue, activeBrands]);
 
   return (
     <div className="filters">
       <p className="filters__sub">filters</p>
       <div className="filters__content">
         <div className="filters__visible">
+          <TextField
+            className="filters__search"
+            variant="standard"
+            placeholder="Search"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+            value={searchValue}
+            onChange={(e) => {
+              dispatch(setSearchValue(e.target.value));
+            }}
+          ></TextField>
           <p>Price</p>
           <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
             <Slider
@@ -95,15 +184,9 @@ export function Filters() {
               return (
                 <FormControlLabel
                   key={el}
-                  control={
-                    <Checkbox
-                      defaultChecked
-                      onChange={(e) => {
-                        e.target.checked ? addBrand(el) : removeBrand(el);
-                      }}
-                    />
-                  }
+                  control={<Checkbox onChange={() => dispatch(setBrands(el))} />}
                   label={el}
+                  checked={activeBrands.includes(el) ? true : false}
                 />
               );
             })}

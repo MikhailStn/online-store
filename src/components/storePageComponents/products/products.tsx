@@ -1,54 +1,113 @@
 import "./products.scss";
 import { ProductCard } from "../../productCard/productCard";
-import { useAppSelector } from "../../../app/hooks";
-import FormControl from "@mui/material/FormControl";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { Select, Option } from "@mui/joy";
-import { FormControlLabel, FormLabel, RadioGroup } from "@mui/material";
-import AppsIcon from "@mui/icons-material/Apps";
-import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
+import { setSortBy } from "../../../store/filtersOptions";
+import { useEffect, useState } from "react";
 
 export function Products() {
   const products = useAppSelector((state) => state.productList.prodList);
+  const currentSortBy = useAppSelector((state) => state.filtersOptions.sortBy);
+  const dispatch = useAppDispatch();
+
+  const [currentSort, setCurrentSort] = useState("Name (A-Z)");
+
+  const changeCurrentSort = () => {
+    switch (currentSortBy) {
+      case "name":
+        {
+          setCurrentSort("Name (A-Z)");
+        }
+        break;
+      case "price-asc":
+        {
+          setCurrentSort("Price (ASC)");
+        }
+        break;
+      case "price-desc":
+        {
+          setCurrentSort("Price (DESC)");
+        }
+        break;
+
+      case "stock-asc":
+        {
+          setCurrentSort("Stock (Less - More)");
+        }
+        break;
+      case "stock-desc":
+        {
+          setCurrentSort("Stock (More - Less)");
+        }
+        break;
+    }
+  };
+
+  useEffect(() => {
+    changeCurrentSort();
+  }, [currentSortBy]);
 
   return (
     <div className="items__wrapper">
       <div className="items__filters">
-        <FormControl className="items__filters_view">
-          <FormLabel className="items__filters_view_sub" id="view-radio-group">
-            View:
-          </FormLabel>
-          <RadioGroup className="items__filters_radio_btns" name="controlled-view-radio-group">
-            <FormControlLabel
-              className="items__filters_radio items__filters_radio_active"
-              value="column"
-              control={<AppsIcon />}
-              label={""}
-            />
-            <FormControlLabel
-              className="items__filters_radio"
-              value="list"
-              control={<FormatListNumberedIcon />}
-              label={""}
-            />
-          </RadioGroup>
-        </FormControl>
         <p className="items__filters_counter">{products.length} products found</p>
-        <Select className="items__filters_select" defaultValue="Name">
-          <Option value="Name">Name</Option>
-          <Option value="Price (ASC)">Price (ASC)</Option>
-          <Option value="Price (DESC)">Price (DESC)</Option>
-          <Option value="Stock (ASC)">Stock (ASC)</Option>
-          <Option value="Stock (DESC)">Stock (DESC)</Option>
+        <Select className="items__filters_select" value={currentSort}>
+          <Option className="items__filters_Option" id="sort-Option" value="Sort by" disabled>
+            Sort by:
+          </Option>
+          <Option
+            value="Name (A-Z)"
+            id="name"
+            onClick={() => {
+              dispatch(setSortBy("name"));
+            }}
+          >
+            Name (A-Z)
+          </Option>
+          <Option
+            value="Price (ASC)"
+            id="price-asc"
+            onClick={() => {
+              dispatch(setSortBy("price-asc"));
+            }}
+          >
+            Price (ASC)
+          </Option>
+          <Option
+            value="Price (DESC)"
+            id="price-desc"
+            onClick={() => {
+              dispatch(setSortBy("price-desc"));
+            }}
+          >
+            Price (DESC)
+          </Option>
+          <Option
+            value="Stock (More - Less)"
+            id="stock-asc"
+            onClick={() => {
+              dispatch(setSortBy("stock-desc"));
+            }}
+          >
+            Stock (More - Less)
+          </Option>
+          <Option
+            value="Stock (Less - More)"
+            id="stock-desc"
+            onClick={() => {
+              dispatch(setSortBy("stock-asc"));
+            }}
+          >
+            Stock (Less - More)
+          </Option>
         </Select>
       </div>
       <div className="items">
-        {products.length == 0 ? (
-          <p className="items__sub">No items found</p>
-        ) : (
-          products.map((el) => {
-            return <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price} id={el.id} />;
-          })
-        )}
+        {products.map((el) => {
+          return (
+            <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price} id={el.id} stock={el.stock} />
+          );
+        })}
       </div>
     </div>
   );
