@@ -6,17 +6,15 @@ import { CartPage } from "./pages/Cart/CartPage";
 import { BlogPage } from "./pages/Blog/BlogPage";
 import { ProductPage } from "./pages/Product/ProductPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "./app/hooks";
+import { useAppDispatch } from "./app/hooks";
 import { useEffect } from "react";
-import { changePath } from "./store/productPath";
 import { setActiveHome, setActiveStore, setActiveBlog, setActiveCart, setNonActive } from "./store/headerNav";
+import { products } from "./data/products";
 
 function App() {
-  const state = useAppSelector((state) => state.productPath);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (localStorage.getItem("curr-product")) dispatch(changePath(localStorage.getItem("curr-product")));
     if (location.pathname == "/store") {
       dispatch(setActiveStore());
     } else if (location.pathname == "/blog") {
@@ -38,22 +36,25 @@ function App() {
         <Route path="/store" element={<StorePage />}></Route>
         <Route path="/blog" element={<BlogPage />}></Route>
         <Route path="/cart" element={<CartPage />}></Route>
-        <Route
-          path={"/" + state.path}
-          element={
-            <ProductPage
-              id={state.id}
-              name={state.name}
-              description={state.description}
-              configuration={state.configuration}
-              brand={state.brand}
-              price={state.price}
-              stock={state.stock}
-              images={state.images}
-              quantity={0}
-            />
-          }
-        ></Route>
+        {products.map((el) => (
+          <Route
+            key={el.id}
+            path={"/store/" + el.name}
+            element={
+              <ProductPage
+                id={el.id}
+                name={el.name}
+                description={el.description}
+                configuration={el.configuration}
+                brand={el.brand}
+                price={el.price}
+                stock={el.stock}
+                images={el.images}
+                quantity={el.quantity}
+              />
+            }
+          ></Route>
+        ))}
       </Routes>
     </BrowserRouter>
   );

@@ -2,7 +2,6 @@ import "./productCard.scss";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { changePath } from "../../store/productPath";
 import { setNonActive } from "../../store/headerNav";
 import { addProduct, removeProduct } from "../../store/cartList";
 import { setQuantity, removeQuantity } from "../../store/productsList";
@@ -17,7 +16,6 @@ type Props = {
 
 export function ProductCard(props: Props) {
   const dispatch = useAppDispatch();
-  const state = useAppSelector((state) => state.productPath);
   const productsArray = useAppSelector((state) => state.cartList);
 
   const remove = () => {
@@ -31,12 +29,9 @@ export function ProductCard(props: Props) {
   };
 
   return (
-    <Link className="product__link" to={state.path}>
+    <Link className="product__link" to={"/store/" + props.name}>
       <div
         className="product__card"
-        onMouseEnter={() => {
-          dispatch(changePath(props.name));
-        }}
         onClick={() => {
           dispatch(setNonActive());
         }}
@@ -48,6 +43,7 @@ export function ProductCard(props: Props) {
           variant="outlined"
           onClick={(e) => {
             e.preventDefault();
+            e.stopPropagation();
             productsArray.includes(props.id) ? remove() : add();
           }}
         >

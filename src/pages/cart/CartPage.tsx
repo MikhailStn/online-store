@@ -5,14 +5,12 @@ import { Product } from "../../types/product";
 import { IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { changePath } from "../../store/productPath";
 import { setNonActive } from "../../store/headerNav";
 import { Form } from "../../components/form/form";
 import { incrementQuantity, decrementQuantity, removeQuantity } from "../../store/productsList";
 import { removeProduct } from "../../store/cartList";
 
 export function CartPage() {
-  const state = useAppSelector((state) => state.productPath);
   const products = useAppSelector((state) => state.productList.prodList);
   const items = useAppSelector((state) => state.cartList);
   const dispatch = useAppDispatch();
@@ -23,7 +21,6 @@ export function CartPage() {
       it.id == el ? productsArray.push(it) : false;
     });
   });
-
   return (
     <div id="cart-page">
       <Header></Header>
@@ -46,10 +43,7 @@ export function CartPage() {
                       <div className="cart__item" key={el.id}>
                         <Link
                           className="cart__item_product"
-                          to={state.path}
-                          onMouseEnter={() => {
-                            dispatch(changePath(el.name));
-                          }}
+                          to={document.location.origin + "/store/" + el.name}
                           onClick={() => {
                             dispatch(setNonActive());
                           }}

@@ -1,4 +1,29 @@
 .footer {
-  height: 90px;
   background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+
+  &__content {
+    width: 100%;
+    max-width: 1280px;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__nav_ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__nav_link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+  }
 }

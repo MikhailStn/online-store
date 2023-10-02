@@ -11,25 +11,25 @@ export function Form() {
   return (
     <form className="form">
       <p className="form__sub">Name</p>
-      <Input className="form__input" placeholder="Enter your name"></Input>
+      <Input autoComplete="name" name="name" className="form__input" placeholder="Enter your name"></Input>
       <p className="form__error"></p>
       <p className="form__sub">Phone</p>
-      <Input className="form__input" placeholder="Enter your phone"></Input>
+      <Input autoComplete="phone" name="phone" className="form__input" placeholder="Enter your phone"></Input>
       <p className="form__error"></p>
       <p className="form__sub">Payment information</p>
       <div className="form__card">
         <p className="form__card_sub">Card number:</p>
-        <input className="form__card_number" placeholder="0000 0000 0000 0000"></input>
+        <input name="card-number" className="form__card_number" placeholder="0000 0000 0000 0000"></input>
         <p className="form__error"></p>
         <div className="form__card_cvv_block">
           <p className="form__card_sub">CVV:</p>
-          <input className="form__card_cvv" placeholder="000"></input>
+          <input name="card-cvv" className="form__card_cvv" placeholder="000"></input>
         </div>
         <p className="form__error"></p>
         <div className="form__card_expires">
           <p className="form__card_sub">Expiration date:</p>
-          <input className="form__card_month" placeholder="00"></input>
-          <input className="form__card_year" placeholder="0000"></input>
+          <input name="card-num" className="form__card_month" placeholder="00"></input>
+          <input name="card-year" className="form__card_year" placeholder="0000"></input>
         </div>
         <p className="form__error"></p>
       </div>

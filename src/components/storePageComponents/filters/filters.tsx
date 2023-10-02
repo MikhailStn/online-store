@@ -3,7 +3,7 @@ import { Slider, Box } from "@mui/material";
 import { useEffect } from "react";
 import { products, brands } from "../../../data/products";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { setFilter } from "../../../store/productsList";
+import { setFilter } from "../../../store/storeList";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -184,7 +184,7 @@ export function Filters() {
               return (
                 <FormControlLabel
                   key={el}
-                  control={<Checkbox onChange={() => dispatch(setBrands(el))} />}
+                  control={<Checkbox name="brand" onChange={() => dispatch(setBrands(el))} />}
                   label={el}
                   checked={activeBrands.includes(el) ? true : false}
                 />

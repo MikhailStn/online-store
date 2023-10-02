@@ -1,18 +1,18 @@
 import { combineReducers, configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import headerNavSlice from "../store/headerNav";
 import mainSliderSlice from "../store/mainSlider";
-import productPathSlice from "../store/productPath";
 import cartListSlice from "../store/cartList";
 import productsListSlice from "../store/productsList";
 import filtersOptionsSlice from "../store/filtersOptions";
+import storeListSlice from "../store/storeList";
 
 const rootReducer = combineReducers({
   headerNav: headerNavSlice,
   mainSlider: mainSliderSlice,
-  productPath: productPathSlice,
   cartList: cartListSlice,
   productList: productsListSlice,
   filtersOptions: filtersOptionsSlice,
+  storeList: storeListSlice,
 });
 
 export const store = configureStore({
