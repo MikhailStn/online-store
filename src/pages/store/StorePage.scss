@@ -17,4 +17,20 @@
     row-gap: 40px;
     justify-content: space-between;
   }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+  }
+
+  &__pagination {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__pages_btns {
+    display: flex;
+    column-gap: 10px;
+  }
 }

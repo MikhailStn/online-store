@@ -5,7 +5,7 @@
   box-shadow: 0px 1px 10px rgba(48, 48, 48, 0.315);
   position: fixed;
   z-index: 10;
-  height: 90px;
+  height: 60px;
   background-color: #fff;
 
   &__content {
@@ -56,7 +56,7 @@
   }
 
   &__nav_link_active {
-    border-bottom: 2px solid #1976d2;
+    border-bottom: 3px solid #1976d2;
   }
 
   &__search_container {
