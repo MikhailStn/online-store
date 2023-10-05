@@ -29,12 +29,8 @@ const productListSlice = createSlice({
       state.prodList.filter((el) => (el.id == action.payload ? (el.quantity = 0) : false));
       localStorage.setItem("cart-items-arr", JSON.stringify(state.prodList));
     },
-    setFilter(state, action) {
-      state.prodList = action.payload;
-    },
   },
 });
 
 export default productListSlice.reducer;
-export const { incrementQuantity, decrementQuantity, setQuantity, removeQuantity, setFilter } =
-  productListSlice.actions;
+export const { incrementQuantity, decrementQuantity, setQuantity, removeQuantity } = productListSlice.actions;

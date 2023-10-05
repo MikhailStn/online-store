@@ -12,6 +12,7 @@ type Props = {
   price: number | string;
   id: string;
   stock: number;
+  style: { display: string };
 };
 
 export function ProductCard(props: Props) {
@@ -29,7 +30,7 @@ export function ProductCard(props: Props) {
   };
 
   return (
-    <Link className="product__link" to={"/store/" + props.name}>
+    <Link className="product__link" to={"/store/" + props.name} style={props.style}>
       <div
         className="product__card"
         onClick={() => {

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { products, brands } from "../../../data/products";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { setFilter } from "../../../store/storeList";
+import { setProductsVisibility } from "../../../store/storeList";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -131,6 +132,7 @@ export function Filters() {
         break;
     }
     dispatch(setFilter(sortedArray));
+    dispatch(setProductsVisibility());
   };
 
   useEffect(() => {

@@ -7,39 +7,39 @@ export const products: Product[] = [
     name: "PC HP OMEN GT22",
     description:
       "The HP OMEN GT22-0005ur PC is presented in a vertical tower case and is a gaming kit. The performance and power of the HP OMEN GT22-0005ur calls for reliable hardware components. First of all, its a Core i9 processor. Along with DDR4 performance with 64GB memory, work efficiency is required, rich gaming experience, video output, and high-end content creation capability is required.",
-    configuration:
-      "Intel Core i9-12900K, 8 x 3.2GHz, 64 GB DDR4, GeForce RTX 3080 Ti, SSD 2000 GB, Windows 11 Home Single Language",
+    configuration: "Intel Core i9-12900K, 8 x 3.2GHz, 64 GB DDR4, GeForce RTX 3080 Ti, SSD 2000 GB, Windows 11 Home Single Language",
     brand: "HP",
     price: 5799,
     stock: 2,
     images: [images.hp005_0, images.hp005_1, images.hp005_2],
     quantity: 0,
+    display: "none",
   },
   {
     id: "lyambda-frontier",
     name: "PC LYAMBDA FRONTIER",
     description:
       "PC Lyambda FRONTIER [L-GM1738-BK] is positioned as a solution for an enthusiastic gamer or e-sportsman interested in a system unit with performance components. PC performance when detecting resource-intensive video games with identified graphical content detected by Intel Core i7-13700KF CPU and GeForce RTX 4070 Ti discrete graphics card with 12GB VRAM. The RAM modules have a total capacity of 64 GB. The gaming system unit Lyambda FRONTIER [L-GM1738-BK] is completely ready for use thanks to the preinstalled Windows 11 Home Single Language OS. To store all the programs, a large number of files and documents, the assembly with a 1 TB solid state drive.",
-    configuration:
-      "Intel Core i7-13700KF, 8 x 3.4GHz, 64 GB DDR5, GeForce RTX 4070 Ti, SSD 1000 GB, Windows 11 Home Single Language",
+    configuration: "Intel Core i7-13700KF, 8 x 3.4GHz, 64 GB DDR5, GeForce RTX 4070 Ti, SSD 1000 GB, Windows 11 Home Single Language",
     brand: "LYAMBDA",
     price: 3399,
     stock: 3,
     images: [images.lyambdaFrontier_0, images.lyambdaFrontier_1, images.lyambdaFrontier_2],
     quantity: 0,
+    display: "none",
   },
   {
     id: "lyambda-inferno",
     name: "PC LYAMBDA INFERNO",
     description:
       "PC Lyambda FRONTIER [L-GM1738-BK] is positioned as a solution for an enthusiastic gamer or e-sportsman interested in a system unit with performance components. PC performance when detecting resource-intensive video games with identified graphical content detected by Intel Core i7-13700KF CPU and GeForce RTX 4070 Ti discrete graphics card with 12GB VRAM. The RAM modules have a total capacity of 64 GB. The gaming system unit Lyambda FRONTIER [L-GM1738-BK] is completely ready for use thanks to the preinstalled Windows 11 Home Single Language OS. To store all the programs, a large number of files and documents, the assembly with a 1 TB solid state drive.",
-    configuration:
-      "Intel Core i9-13900K, 8 x 3GHz, 64 GB DDR5, GeForce RTX 4090, SSD 1000 GB, Windows 11 Home Single Language",
+    configuration: "Intel Core i9-13900K, 8 x 3GHz, 64 GB DDR5, GeForce RTX 4090, SSD 1000 GB, Windows 11 Home Single Language",
     brand: "LYAMBDA",
     price: 4999,
     stock: 2,
     images: [images.lymbdaInferno_0, images.lymbdaInferno_1, images.lymbdaInferno_2],
     quantity: 0,
+    display: "none",
   },
   {
     id: "evo-x036",
@@ -52,6 +52,7 @@ export const products: Product[] = [
     stock: 4,
     images: [images.evo034_0, images.evo034_1, images.evo034_2],
     quantity: 0,
+    display: "none",
   },
   {
     id: "rage-h301",
@@ -64,6 +65,7 @@ export const products: Product[] = [
     stock: 5,
     images: [images.rage_h301_0, images.rage_h301_1, images.rage_h301_2],
     quantity: 0,
+    display: "none",
   },
   {
     id: "neo-m120",
@@ -76,6 +78,7 @@ export const products: Product[] = [
     stock: 8,
     images: [images.neo_m120_0, images.neo_m120_1, images.neo_m120_2],
     quantity: 0,
+    display: "none",
   },
   {
     id: "gear-a001",
@@ -88,6 +91,7 @@ export const products: Product[] = [
     stock: 6,
     images: [images.gear_a001_0, images.gear_a001_1, images.gear_a001_2],
     quantity: 0,
+    display: "none",
   },
 ];
 

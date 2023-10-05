@@ -3,42 +3,42 @@ import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
 import { Filters } from "../../components/storePageComponents/filters/filters";
 import { Products } from "../../components/storePageComponents/products/products";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { incrementPage, decrementPage } from "../../store/storePage";
-import { useEffect, useRef, useState } from "react";
-
-/* for (let i = 0; i < products.length; i++) {
-    for (let y = 1; y <= 6; y++) {
-      for (let j = 6 * y; j < 6 * y + 6; j++) {
-        if (products[j - 6]) {
-          products[j - 6].setAttribute("id", `page-id-${y}`);
-        }
-      }
-    }
-  } */
+import { setProductsVisibility, incrementPage, decrementPage, setPage } from "../../store/storeList";
+import { useEffect, useState } from "react";
 
 export function StorePage() {
+  const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.storeList.prodList);
-  const currentPage = useAppSelector((state) => state.storePageNumber.pageNumber);
-
-  const [commonPages, setCommonPages] = useState(
-    products.length % 6 == 0 ? products.length / 6 : Math.floor(products.length / 6) + 1
-  );
-
+  const currentPage = useAppSelector((state) => state.storeList.pageNumber);
   const [pagesArr, setPagesArray] = useState([] as number[]);
+  const [visiblePagination, setVisibility] = useState({ display: "flex" });
 
   useEffect(() => {
-    setCommonPages(products.length % 6 == 0 ? products.length / 6 : Math.floor(products.length / 6) + 1);
-    console.log(commonPages);
+    let pagesNum = 0;
+    if (products.length == 0) {
+      setVisibility({ display: "none" });
+      return;
+    } else if (products.length <= 6) {
+      pagesNum = 1;
+      setVisibility({ display: "flex" });
+    } else {
+      if (products.length % 6 == 0) {
+        pagesNum = products.length / 6;
+        setVisibility({ display: "flex" });
+      } else {
+        pagesNum = Math.floor(products.length / 6) + 1;
+        setVisibility({ display: "flex" });
+      }
+    }
     let i = 1;
     const newArr: number[] = [];
-    while (i <= commonPages) {
+    while (i <= pagesNum) {
       newArr.push(i);
       i++;
     }
     setPagesArray(newArr);
+    dispatch(setProductsVisibility());
   }, [products]);
 
   return (
@@ -51,14 +51,39 @@ export function StorePage() {
             <Filters />
             <Products />
           </div>
-          <div className="store__pagination">
-            <button className="store__pagination_btn"></button>
+          <div className="store__pagination" style={visiblePagination}>
+            <button
+              className="store__pagination_btn store__arrow-left"
+              onClick={() => {
+                if (currentPage != 1) {
+                  dispatch(decrementPage());
+                  dispatch(setProductsVisibility());
+                }
+              }}
+            ></button>
             <div className="store__pages_btns">
-              {pagesArr.map((el) => (
-                <button className="store__pages_btn">{el}</button>
+              {pagesArr.map((el, i) => (
+                <button
+                  className={currentPage == i + 1 ? "store__pages_btn store__active_page" : "store__pages_btn"}
+                  key={el + i}
+                  onClick={() => {
+                    dispatch(setPage(el));
+                    dispatch(setProductsVisibility());
+                  }}
+                >
+                  {el}
+                </button>
               ))}
             </div>
-            <button></button>
+            <button
+              className="store__pagination_btn store__arrow-right"
+              onClick={() => {
+                if (currentPage != pagesArr[pagesArr.length - 1]) {
+                  dispatch(incrementPage());
+                  dispatch(setProductsVisibility());
+                }
+              }}
+            ></button>
           </div>
         </div>
       </main>

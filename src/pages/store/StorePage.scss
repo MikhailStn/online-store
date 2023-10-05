@@ -24,13 +24,56 @@
     column-gap: 10px;
   }
 
-  &__pagination {
-    width: 20px;
-    height: 20px;
-  }
-
   &__pages_btns {
     display: flex;
     column-gap: 10px;
+  }
+
+  &__pagination_btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 50%;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: 45% center;
+    transition: 0.3s;
+  }
+
+  &__arrow-left {
+    background-image: url("../../assets/icons/left-arrow.png");
+  }
+
+  &__arrow-right {
+    background-image: url("../../assets/icons/right-arrow.png");
+  }
+
+  &__pages_btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 24px;
+    transition: 0.3s;
+  }
+
+  &__pages_btn:hover,
+  &__pagination_btn:hover {
+    background-color: rgba(0, 0, 0, 0.089);
+  }
+
+  &__active_page {
+    background-color: #1976d2;
+    color: #fff;
+  }
+
+  &__active_page:hover {
+    background-color: #1976d2;
+    color: #fff;
   }
 }

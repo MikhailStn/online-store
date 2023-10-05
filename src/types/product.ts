@@ -8,4 +8,5 @@ export type Product = {
   stock: number;
   images: string[];
   quantity: number;
+  display: string;
 };
