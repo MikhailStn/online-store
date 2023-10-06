@@ -89,3 +89,88 @@
     transition: 0.3s;
   }
 }
+
+@media (max-width: 1279px) {
+  .novelties {
+    height: auto;
+    background: #fff;
+
+    &__content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__content {
+      padding: 0;
+    }
+
+    &__aside {
+      width: auto;
+      padding: 40px;
+    }
+
+    &__main_content {
+      max-width: 770px;
+    }
+
+    &__aside_title {
+      text-align: center;
+    }
+
+    &__aside_text {
+      text-align: center;
+    }
+
+    &__aside_buttons {
+      display: none;
+    }
+
+    &__main {
+      padding: 40px;
+      width: auto;
+      display: flex;
+      column-gap: 20px;
+      align-items: center;
+    }
+
+    &__main_btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    &__main_btn:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.arrow-left {
+  background-image: url("../../../assets/icons/left-arrow.png");
+}
+
+.arrow-right {
+  background-image: url("../../../assets/icons/right-arrow.png");
+}
+
+@media (max-width: 1024px) {
+  .novelties {
+    &__main_content {
+      max-width: 520px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .novelties {
+    &__main_content {
+      max-width: 260px;
+    }
+  }
+}

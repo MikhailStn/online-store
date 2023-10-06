@@ -41,3 +41,24 @@ body {
   color: rgba(0, 0, 0, 0.464);
   cursor: default;
 }
+
+.mobile__content_1279 {
+  display: none;
+}
+
+.mobile__content_767 {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .mobile__content_1279 {
+    display: flex;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .mobile__content_767 {
+    display: flex;
+  }
+}

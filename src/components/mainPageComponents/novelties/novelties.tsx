@@ -21,13 +21,13 @@ export function Novelties() {
             <h2 className="novelties__aside_title">what's new</h2>
             <ul className="novelties__aside_list">
               <li className="novelties__aside_text">
-                Lightning-Fast Performance: Say goodbye to lag and hello to seamless multitasking. Our cutting-edge
-                computers boast lightning-fast processors that effortlessly handle even the most demanding tasks, so you
-                can power through your work and play without missing a beat.
+                Lightning-Fast Performance: Say goodbye to lag and hello to seamless multitasking. Our cutting-edge computers boast
+                lightning-fast processors that effortlessly handle even the most demanding tasks, so you can power through your work and
+                play without missing a beat.
               </li>
               <li className="novelties__aside_text">
-                Stunning Visuals: Immerse yourself in a world of vibrant colors and crystal-clear graphics. The latest
-                graphics technology brings your games, movies, and creative projects to life with jaw-dropping realism.
+                Stunning Visuals: Immerse yourself in a world of vibrant colors and crystal-clear graphics. The latest graphics technology
+                brings your games, movies, and creative projects to life with jaw-dropping realism.
               </li>
             </ul>
             <div className="novelties__aside_buttons">
@@ -51,6 +51,12 @@ export function Novelties() {
           </div>
         </div>
         <div className="novelties__main">
+          <button
+            className="novelties__main_btn arrow-left mobile__content_1279"
+            onClick={() => {
+              dispatch(goPrevNovSlide());
+            }}
+          ></button>
           <div className="novelties__main_content">
             <div className="novelties__main_slider" style={{ marginLeft: state.noveltiesMargin }}>
               {shuffledProducts.map((el) => (
@@ -61,10 +67,19 @@ export function Novelties() {
                   price={el.price}
                   id={el.id}
                   stock={el.stock}
+                  style={{
+                    display: "",
+                  }}
                 ></ProductCard>
               ))}
             </div>
           </div>
+          <button
+            className="novelties__main_btn arrow-right mobile__content_1279"
+            onClick={() => {
+              dispatch(goNextNovSlide());
+            }}
+          ></button>
         </div>
       </div>
     </div>
