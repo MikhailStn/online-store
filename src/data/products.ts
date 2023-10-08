@@ -1,5 +1,5 @@
 import * as images from "./products-images";
-import { Product } from "../types/product";
+import { Product } from "../types/types";
 
 export const products: Product[] = [
   {

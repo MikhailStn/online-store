@@ -1,33 +1,14 @@
 import "./App.scss";
-import { MainPage } from "./pages/main/MainPage";
+import { MainPage } from "./pages/Main/MainPage";
 import { Page404 } from "./pages/404/Page404";
-import { StorePage } from "./pages/store/StorePage";
-import { CartPage } from "./pages/cart/CartPage";
-import { BlogPage } from "./pages/blog/BlogPage";
-import { ProductPage } from "./pages/product/ProductPage";
+import { StorePage } from "./pages/Store/StorePage";
+import { CartPage } from "./pages/Cart/CartPage";
+import { BlogPage } from "./pages/Blog/BlogPage";
+import { ProductPage } from "./pages/Product/ProductPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useAppDispatch } from "./app/hooks";
-import { useEffect } from "react";
-import { setActiveHome, setActiveStore, setActiveBlog, setActiveCart, setNonActive } from "./store/headerNav";
 import { products } from "./data/products";
 
 function App() {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (location.pathname == "/store") {
-      dispatch(setActiveStore());
-    } else if (location.pathname == "/blog") {
-      dispatch(setActiveBlog());
-    } else if (location.pathname == "/cart") {
-      dispatch(setActiveCart());
-    } else if (location.pathname == "/") {
-      dispatch(setActiveHome());
-    } else {
-      dispatch(setNonActive());
-    }
-  }, []);
-
   return (
     <BrowserRouter>
       <Routes>

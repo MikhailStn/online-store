@@ -3,6 +3,8 @@
   height: 500px;
   justify-content: center;
   background: linear-gradient(90deg, #2d6ecf 50%, #fff 50%);
+  position: relative;
+  z-index: 1;
 
   &__content {
     width: 100%;
@@ -111,6 +113,7 @@
 
     &__main_content {
       max-width: 770px;
+      margin-left: -15px;
     }
 
     &__aside_title {
@@ -126,7 +129,7 @@
     }
 
     &__main {
-      padding: 40px;
+      padding: 40px 10px;
       width: auto;
       display: flex;
       column-gap: 20px;
@@ -143,6 +146,7 @@
       background-position: center;
       opacity: 0.5;
       cursor: pointer;
+      background-color: transparent;
     }
 
     &__main_btn:hover {
@@ -157,6 +161,7 @@
 
 .arrow-right {
   background-image: url("../../../assets/icons/right-arrow.png");
+  margin-left: 10px;
 }
 
 @media (max-width: 1024px) {

@@ -6,9 +6,15 @@ import { Products } from "../../components/storePageComponents/products/products
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { setProductsVisibility, incrementPage, decrementPage, setPage } from "../../store/storeList";
 import { useEffect, useState } from "react";
+import { setActiveStore } from "../../store/headerNav";
 
 export function StorePage() {
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(setActiveStore());
+  }, []);
+
   const products = useAppSelector((state) => state.storeList.prodList);
   const currentPage = useAppSelector((state) => state.storeList.pageNumber);
   const [pagesArr, setPagesArray] = useState([] as number[]);

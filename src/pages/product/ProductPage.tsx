@@ -2,15 +2,22 @@ import "./ProductPage.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
-import { Product } from "../../types/product";
+import { Product } from "../../types/types";
 import { Carousel } from "react-responsive-carousel";
 import { Button } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { addProduct, removeProduct } from "../../store/cartList";
 import { incrementQuantity, decrementQuantity } from "../../store/productsList";
+import { setNonActive } from "../../store/headerNav";
+import { useEffect } from "react";
 
 export function ProductPage(props: Product) {
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(setNonActive());
+  }, []);
+
   const productsArray = useAppSelector((state) => state.cartList);
 
   const remove = () => {

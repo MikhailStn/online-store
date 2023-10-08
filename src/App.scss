@@ -21,11 +21,13 @@ $italic-font: "Nunito Italic";
 
 body {
   margin: 0;
+  background-color: #fff;
 }
 
 .main {
   padding-top: 60px;
   min-height: 100vh;
+  background-color: #fff;
 }
 
 #root {
@@ -55,7 +57,6 @@ body {
     display: flex;
   }
 }
-
 
 @media (max-width: 768px) {
   .mobile__content_767 {

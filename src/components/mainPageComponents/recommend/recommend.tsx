@@ -1,7 +1,7 @@
 import "./recommend.scss";
 import { products } from "../../../data/products";
 import { ProductCard } from "../../productCard/productCard";
-import { Product } from "../../../types/product";
+import { Product } from "../../../types/types";
 import { goNextRecSlide, goPrevRecSlide } from "../../../store/mainSlider";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 

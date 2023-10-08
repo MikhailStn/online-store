@@ -1,19 +1,25 @@
 import "./CartPage.scss";
 import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
-import { Product } from "../../types/product";
+import { Product } from "../../types/types";
 import { IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { setNonActive } from "../../store/headerNav";
+import { setActiveCart, setNonActive } from "../../store/headerNav";
 import { Form } from "../../components/form/form";
 import { incrementQuantity, decrementQuantity, removeQuantity } from "../../store/productsList";
 import { removeProduct } from "../../store/cartList";
+import { useEffect } from "react";
 
 export function CartPage() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(setActiveCart());
+  }, []);
+
   const products = useAppSelector((state) => state.productList.prodList);
   const items = useAppSelector((state) => state.cartList);
-  const dispatch = useAppDispatch();
   const productsArray: Product[] = [];
 
   items.filter((el) => {

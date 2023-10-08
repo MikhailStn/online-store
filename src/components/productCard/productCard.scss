@@ -43,8 +43,19 @@
     font-size: 14px;
     color: #00000060;
   }
-}
 
+  &__button_arrow_left {
+    position: absolute;
+    left: 0;
+    margin-left: 10px;
+  }
+
+  &__button_arrow_right {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+  }
+}
 
 @media (max-width: 768px) {
   .products__content {

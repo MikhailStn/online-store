@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   background-size: cover;
+  position: relative;
+  z-index: 1;
 
   &__content {
     width: 100%;

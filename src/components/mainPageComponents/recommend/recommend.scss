@@ -1,10 +1,10 @@
-$color: "2d2d36";
-
 .recommend {
   display: flex;
   height: 500px;
   justify-content: center;
   background: linear-gradient(90deg, #362f2d 50%, rgba(255, 255, 255, 1) 50%);
+  position: relative;
+  z-index: 1;
 
   &__content {
     width: 100%;
@@ -113,6 +113,7 @@ $color: "2d2d36";
 
     &__main_content {
       max-width: 770px;
+      margin-left: -10px;
     }
 
     &__aside_title {
@@ -128,7 +129,7 @@ $color: "2d2d36";
     }
 
     &__main {
-      padding: 40px;
+      padding: 40px 10px;
       width: auto;
       display: flex;
       column-gap: 20px;
@@ -145,6 +146,7 @@ $color: "2d2d36";
       background-position: center;
       opacity: 0.5;
       cursor: pointer;
+      background-color: transparent;
     }
 
     &__main_btn:hover {
@@ -159,6 +161,7 @@ $color: "2d2d36";
 
 .arrow-right {
   background-image: url("../../../assets/icons/right-arrow.png");
+  margin-left: 10px;
 }
 
 @media (max-width: 1024px) {
@@ -174,5 +177,32 @@ $color: "2d2d36";
     &__main_content {
       max-width: 260px;
     }
+  }
+}
+
+@media (max-width: 420px) {
+  .arrow-left,
+  .arrow-right {
+    position: absolute;
+  }
+
+  .arrow-left {
+    left: 0;
+    margin-left: 10px;
+  }
+
+  .arrow-right {
+    right: 0;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .arrow-left {
+    margin-left: 0;
+  }
+
+  .arrow-right {
+    margin-right: 0;
   }
 }

@@ -1,7 +1,7 @@
 import "./novelties.scss";
 import { ProductCard } from "../../productCard/productCard";
 import { products } from "../../../data/products";
-import { Product } from "../../../types/product";
+import { Product } from "../../../types/types";
 import { goNextNovSlide, goPrevNovSlide } from "../../../store/mainSlider";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 

@@ -30,7 +30,6 @@ const headerNavSlice = createSlice({
     setActiveCart(state) {
       state.classNameHome = "header__nav_link";
       state.classNameStore = "header__nav_link";
-      state.classNameCart = "header__cart_icon header__cart_icon_active";
       state.classNameBlog = "header__nav_link";
     },
     setNonActive(state) {

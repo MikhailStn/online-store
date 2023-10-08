@@ -105,7 +105,15 @@ export function Products() {
       <div className="items">
         {products.map((el) => {
           return (
-            <ProductCard key={el.id} image={el.images[0]} name={el.name} price={el.price} id={el.id} stock={el.stock} style={{display: `${el.display}`}} />
+            <ProductCard
+              key={el.id}
+              image={el.images[0]}
+              name={el.name}
+              price={el.price}
+              id={el.id}
+              stock={el.stock}
+              style={{ display: `${el.display}` }}
+            />
           );
         })}
       </div>

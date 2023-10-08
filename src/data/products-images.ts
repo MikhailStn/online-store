@@ -7,8 +7,8 @@ import lyambdaFrontier_1 from "../assets/images/products/lyambda_frontier/1.jpg"
 import lyambdaFrontier_2 from "../assets/images/products/lyambda_frontier/2.jpg";
 
 import lymbdaInferno_0 from "../assets/images/products/lyambda_inferno/0.jpg";
-import lymbdaInferno_1 from "../assets/images/products/lyambda_inferno/0.jpg";
-import lymbdaInferno_2 from "../assets/images/products/lyambda_inferno/0.jpg";
+import lymbdaInferno_1 from "../assets/images/products/lyambda_inferno/1.jpg";
+import lymbdaInferno_2 from "../assets/images/products/lyambda_inferno/2.jpg";
 
 import evo034_0 from "../assets/images/products/evo_x036/0.jpg";
 import evo034_1 from "../assets/images/products/evo_x036/1.jpg";
