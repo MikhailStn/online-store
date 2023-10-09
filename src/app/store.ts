@@ -5,6 +5,7 @@ import cartListSlice from "../store/cartList";
 import productsListSlice from "../store/productsList";
 import filtersOptionsSlice from "../store/filtersOptions";
 import storeListSlice from "../store/storeList";
+import formValidationSlice from "../store/formValidation";
 
 const rootReducer = combineReducers({
   headerNav: headerNavSlice,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   productList: productsListSlice,
   filtersOptions: filtersOptionsSlice,
   storeList: storeListSlice,
+  formformValidation: formValidationSlice,
 });
 
 export const store = configureStore({
