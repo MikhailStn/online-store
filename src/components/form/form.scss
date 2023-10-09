@@ -96,4 +96,55 @@
   &__total_amount {
     font-size: 24px;
   }
+
+  @media (max-width: 1279px) {
+    & {
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 410px) {
+    & {
+      padding: 10px;
+    }
+
+    &__card {
+      padding: 10px;
+      height: 200px;
+    }
+
+    &__card_expires {
+      flex-direction: column;
+      align-items: end;
+      row-gap: 10px;
+    }
+
+    &__card_cvv_block {
+      padding-bottom: 10px;
+    }
+
+    &__card_number,
+    &__card_cvv,
+    &__card_year,
+    &__card_month {
+      font-size: 16px;
+      padding: 0;
+    }
+
+    &__sub {
+      font-size: 18px;
+    }
+
+    &__total {
+      margin: 10px 0;
+      column-gap: 10px;
+    }
+
+    &__total_sub,
+    &__total_amount {
+      font-size: 18px;
+    }
+  }
 }

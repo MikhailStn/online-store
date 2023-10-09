@@ -55,6 +55,12 @@
     right: 0;
     margin-right: 10px;
   }
+
+  @media (max-width: 1279px) {
+    &__link {
+      max-width: 237px;
+    }
+  }
 }
 
 @media (max-width: 768px) {

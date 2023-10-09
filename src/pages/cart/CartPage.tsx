@@ -41,7 +41,9 @@ export function CartPage() {
                 <div className="cart">
                   <div className="cart__titles">
                     <h4 className="cart__title_product">Product</h4>
+                    <span className="mobile__content_767">/</span>
                     <h4 className="cart__title_quantity">Quantity</h4>
+                    <span className="mobile__content_767">/</span>
                     <h4 className="cart__title_amount">Amount</h4>
                   </div>
                   <div className="cart__items">
@@ -55,7 +57,7 @@ export function CartPage() {
                           }}
                         >
                           <img src={el.images[0]} width={100} style={{ padding: "10px" }}></img>
-                          <p style={{ fontWeight: 600, fontSize: "16px" }}>{el.name}</p>
+                          <p className="cart__item_sub">{el.name}</p>
                         </Link>
                         <div className="cart__item_quantity">
                           <IconButton
