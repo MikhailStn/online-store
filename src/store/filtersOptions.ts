@@ -43,8 +43,15 @@ const filtersOptionsSlice = createSlice({
     setSortBy(state, action) {
       state.sortBy = action.payload;
     },
+    setInitial(state) {
+      (state.price = [minPrice(), maxPrice()]),
+        (state.stock = [minStock(), maxStock()]),
+        (state.brands = brands),
+        (state.searchValue = ""),
+        (state.sortBy = "name");
+    },
   },
 });
 
 export default filtersOptionsSlice.reducer;
-export const { setPrice, setStock, setBrands, setSearchValue, setSortBy } = filtersOptionsSlice.actions;
+export const { setPrice, setStock, setBrands, setSearchValue, setSortBy, setInitial } = filtersOptionsSlice.actions;

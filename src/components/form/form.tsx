@@ -1,6 +1,7 @@
 import "./form.scss";
 import { Input, Button } from "@mui/material";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { CSSProperties, useState } from "react";
 import {
   setUserName,
   setUserPhone,
@@ -8,8 +9,13 @@ import {
   setUserCardMonth,
   setUserCardYear,
   setUserCardCvv,
+  setDefault,
 } from "../../store/formValidation";
-import { useState } from "react";
+
+const errStyle: CSSProperties = {
+  opacity: "0",
+  visibility: "hidden",
+};
 
 export function Form() {
   const dispatch = useAppDispatch();
@@ -26,6 +32,8 @@ export function Form() {
   const [inputCvvStyle, setInputCvvStyle] = useState({});
   const [inputMonthStyle, setInputMonthStyle] = useState({});
   const [inputYearStyle, setInputYearStyle] = useState({});
+  const [formErr, setFormErr] = useState(errStyle);
+  const [formPopup, setPopup] = useState(errStyle);
 
   const validateName = (val: string) => {
     if (val.length < 4 && val.length > 0) {
@@ -109,13 +117,26 @@ export function Form() {
       validateCardYear(userInfo.userCardYear)
     ) {
       console.log("true");
+      setFormErr({ opacity: "0", visibility: "hidden" });
+      setPopup({ opacity: "1", visibility: "visible" });
+      setTimeout(() => {
+        setPopup(errStyle);
+      }, 2000);
+      dispatch(setDefault());
     } else {
+      setFormErr({ opacity: "1", visibility: "visible" });
       console.log("false");
     }
   };
 
   return (
     <form className="form">
+      <div className="form__overlay" style={formPopup}>
+        <div className="form__popup">
+          <p className="form__popup_sub">The order has been created</p>
+          <p className="form__popup_sub_success">✔</p>
+        </div>
+      </div>
       <p className="form__sub">Name</p>
       <Input
         autoComplete="name"
@@ -218,6 +239,9 @@ export function Form() {
       >
         Order
       </Button>
+      <p className="form__error" style={formErr}>
+        Enter the correct data
+      </p>
     </form>
   );
 }

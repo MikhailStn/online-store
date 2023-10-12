@@ -31,9 +31,12 @@ const formValidationSlice = createSlice({
     setUserCardYear(state, action) {
       state.userInfo.userCardYear = action.payload;
     },
+    setDefault(state) {
+      state.userInfo = { userName: "", userPhone: "", userCardNumber: "", userCardMonth: "", userCardYear: "", userCardCVV: "" };
+    },
   },
 });
 
 export default formValidationSlice.reducer;
-export const { setUserName, setUserPhone, setUserCardNumber, setUserCardCvv, setUserCardMonth, setUserCardYear } =
+export const { setUserName, setUserPhone, setUserCardNumber, setUserCardCvv, setUserCardMonth, setUserCardYear, setDefault } =
   formValidationSlice.actions;

@@ -8,10 +8,11 @@
   flex-direction: column;
   row-gap: 10px;
   height: max-content;
+  padding-bottom: 20px;
 
   &__sub {
     margin: 0;
-    font-size: 24px;
+    font-size: 18px;
   }
 
   &__error {
@@ -97,6 +98,41 @@
     font-size: 24px;
   }
 
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.205);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__popup {
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  &__popup_sub {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  &__popup_sub_success {
+    font-size: 48px;
+    margin: 0;
+    color: #1976d2;
+  }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     appearance: none;
@@ -152,6 +188,11 @@
     &__total_sub,
     &__total_amount {
       font-size: 18px;
+    }
+
+    &__popup {
+      width: 300px;
+      height: 300px;
     }
   }
 }

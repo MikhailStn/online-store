@@ -10,7 +10,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { setPrice, setStock, setBrands, setSearchValue } from "../../../store/filtersOptions";
+import { setPrice, setStock, setBrands, setSearchValue, setInitial } from "../../../store/filtersOptions";
+import { Button } from "@mui/joy";
 
 export function Filters() {
   const dispatch = useAppDispatch();
@@ -144,6 +145,16 @@ export function Filters() {
       <p className="filters__sub">filters</p>
       <div className="filters__content">
         <div className="filters__visible">
+          <Button
+            className="filters__button"
+            variant="outlined"
+            sx={{ margin: "20px 0", fontWeight: "400", fontSize: "18px" }}
+            onClick={() => {
+              dispatch(setInitial());
+            }}
+          >
+            RESET
+          </Button>
           <TextField
             className="filters__search"
             variant="standard"
@@ -162,23 +173,11 @@ export function Filters() {
           ></TextField>
           <p>Price</p>
           <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
-            <Slider
-              max={maxPrice()}
-              min={minPrice()}
-              value={price}
-              onChange={handleChangePrice}
-              valueLabelDisplay="auto"
-            />
+            <Slider max={maxPrice()} min={minPrice()} value={price} onChange={handleChangePrice} valueLabelDisplay="auto" />
           </Box>
           <p>Stock</p>
           <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
-            <Slider
-              max={maxStock()}
-              min={minStock()}
-              value={stock}
-              onChange={handleChangeStock}
-              valueLabelDisplay="auto"
-            />
+            <Slider max={maxStock()} min={minStock()} value={stock} onChange={handleChangeStock} valueLabelDisplay="auto" />
           </Box>
           <p>Brands</p>
           <FormGroup sx={{ paddingLeft: "15px" }}>

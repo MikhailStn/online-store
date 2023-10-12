@@ -19,5 +19,5 @@ export type MenuStyle = {
   line3: CSSProperties;
   headerMenu: CSSProperties;
   headerOverlay: CSSProperties;
-  headerButton: CSSProperties
+  headerButton: CSSProperties;
 };
