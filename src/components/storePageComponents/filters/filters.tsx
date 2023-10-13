@@ -10,8 +10,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { setPrice, setStock, setBrands, setSearchValue, setInitial } from "../../../store/filtersOptions";
+import { setPrice, setStock, setBrands, setSearchValue, setInitial, setAllBrands, clearAllBrands } from "../../../store/filtersOptions";
 import { Button } from "@mui/joy";
+import { setPage } from "../../../store/storeList";
 
 export function Filters() {
   const dispatch = useAppDispatch();
@@ -138,6 +139,7 @@ export function Filters() {
 
   useEffect(() => {
     updateStore();
+    dispatch(setPage(1));
   }, [price, stock, sortBy, searchValue, activeBrands]);
 
   return (
@@ -181,6 +183,16 @@ export function Filters() {
           </Box>
           <p>Brands</p>
           <FormGroup sx={{ paddingLeft: "15px" }}>
+            <FormControlLabel
+              control={<Checkbox name="brand" onChange={() => dispatch(setAllBrands())} />}
+              label={"SHOW ALL"}
+              checked={activeBrands == brands ? true : false}
+            />
+            <FormControlLabel
+              control={<Checkbox name="brand" onChange={() => dispatch(clearAllBrands())} />}
+              label={"CLEAR ALL"}
+              checked={activeBrands.length == 0 ? true : false}
+            />
             {brands.map((el) => {
               return (
                 <FormControlLabel

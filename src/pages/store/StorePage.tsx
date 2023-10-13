@@ -64,6 +64,7 @@ export function StorePage() {
                 if (currentPage != 1) {
                   dispatch(decrementPage());
                   dispatch(setProductsVisibility());
+                  window.scrollTo(0, 0);
                 }
               }}
             ></button>
@@ -75,6 +76,7 @@ export function StorePage() {
                   onClick={() => {
                     dispatch(setPage(el));
                     dispatch(setProductsVisibility());
+                    window.scrollTo(0, 0);
                   }}
                 >
                   {el}
@@ -87,6 +89,7 @@ export function StorePage() {
                 if (currentPage != pagesArr[pagesArr.length - 1]) {
                   dispatch(incrementPage());
                   dispatch(setProductsVisibility());
+                  window.scrollTo(0, 0);
                 }
               }}
             ></button>

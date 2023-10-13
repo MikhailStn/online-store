@@ -2,6 +2,7 @@ import "./form.scss";
 import { Input, Button } from "@mui/material";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { CSSProperties, useState } from "react";
+
 import {
   setUserName,
   setUserPhone,
@@ -15,6 +16,12 @@ import {
 const errStyle: CSSProperties = {
   opacity: "0",
   visibility: "hidden",
+};
+
+const popup: CSSProperties = {
+  opacity: "0",
+  visibility: "hidden",
+  transform: "scale(0.7)",
 };
 
 export function Form() {
@@ -33,7 +40,8 @@ export function Form() {
   const [inputMonthStyle, setInputMonthStyle] = useState({});
   const [inputYearStyle, setInputYearStyle] = useState({});
   const [formErr, setFormErr] = useState(errStyle);
-  const [formPopup, setPopup] = useState(errStyle);
+  const [formPopup, setPopup] = useState(popup);
+  const [overlay, setOverlay] = useState(errStyle);
 
   const validateName = (val: string) => {
     if (val.length < 4 && val.length > 0) {
@@ -118,9 +126,11 @@ export function Form() {
     ) {
       console.log("true");
       setFormErr({ opacity: "0", visibility: "hidden" });
-      setPopup({ opacity: "1", visibility: "visible" });
+      setOverlay({ opacity: "1", visibility: "visible" });
+      setPopup({ opacity: "1", visibility: "visible", transform: "scale(1)" });
       setTimeout(() => {
-        setPopup(errStyle);
+        setPopup(popup);
+        setOverlay(formErr);
       }, 2000);
       dispatch(setDefault());
     } else {
@@ -131,8 +141,8 @@ export function Form() {
 
   return (
     <form className="form">
-      <div className="form__overlay" style={formPopup}>
-        <div className="form__popup">
+      <div className="form__overlay" style={overlay}>
+        <div className="form__popup" style={formPopup}>
           <p className="form__popup_sub">The order has been created</p>
           <p className="form__popup_sub_success">✔</p>
         </div>

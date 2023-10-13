@@ -37,6 +37,12 @@ const filtersOptionsSlice = createSlice({
         state.brands.push(action.payload);
       }
     },
+    setAllBrands(state) {
+      state.brands = brands;
+    },
+    clearAllBrands(state) {
+      state.brands = [];
+    },
     setSearchValue(state, action) {
       state.searchValue = action.payload;
     },
@@ -54,4 +60,4 @@ const filtersOptionsSlice = createSlice({
 });
 
 export default filtersOptionsSlice.reducer;
-export const { setPrice, setStock, setBrands, setSearchValue, setSortBy, setInitial } = filtersOptionsSlice.actions;
+export const { setPrice, setStock, setBrands, setSearchValue, setSortBy, setInitial, setAllBrands, clearAllBrands } = filtersOptionsSlice.actions;
