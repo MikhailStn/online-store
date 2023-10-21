@@ -31,8 +31,11 @@ const storeListSlice = createSlice({
         }
       }
     },
+    setDefaultStore(state) {
+      state.prodList = products;
+    },
   },
 });
 
 export default storeListSlice.reducer;
-export const { setFilter, setProductsVisibility, incrementPage, decrementPage, setPage } = storeListSlice.actions;
+export const { setFilter, setProductsVisibility, incrementPage, decrementPage, setPage, setDefaultStore } = storeListSlice.actions;

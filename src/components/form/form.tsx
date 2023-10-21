@@ -2,6 +2,8 @@ import "./form.scss";
 import { Input, Button } from "@mui/material";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { CSSProperties, useState } from "react";
+import { setDefaultStore } from "../../store/storeList";
+// import { setDefaultCart } from "../../store/cartList";
 
 import {
   setUserName,
@@ -124,18 +126,20 @@ export function Form() {
       validateCardMonth(userInfo.userCardMonth) &&
       validateCardYear(userInfo.userCardYear)
     ) {
-      console.log("true");
+      dispatch(setDefault());
+      dispatch(setDefaultStore());
+      localStorage.removeItem("cart-items-arr");
+      localStorage.removeItem("cart-str-arr");
       setFormErr({ opacity: "0", visibility: "hidden" });
       setOverlay({ opacity: "1", visibility: "visible" });
       setPopup({ opacity: "1", visibility: "visible", transform: "scale(1)" });
       setTimeout(() => {
         setPopup(popup);
         setOverlay(formErr);
-      }, 2000);
-      dispatch(setDefault());
+        window.location.href = "/";
+      }, 3000);
     } else {
       setFormErr({ opacity: "1", visibility: "visible" });
-      console.log("false");
     }
   };
 
