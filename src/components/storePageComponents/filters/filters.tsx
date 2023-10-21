@@ -177,14 +177,16 @@ export function Filters(props: Props) {
         <p>Brands</p>
         <FormGroup sx={{ paddingLeft: "15px" }}>
           <FormControlLabel
-            control={<Checkbox name="brand" onChange={() => dispatch(setAllBrands())} />}
+            control={
+              <Checkbox
+                name="brand"
+                onChange={() => {
+                  activeBrands.length == brands.length ? dispatch(clearAllBrands()) : dispatch(setAllBrands());
+                }}
+              />
+            }
             label={"SHOW ALL"}
-            checked={activeBrands == brands ? true : false}
-          />
-          <FormControlLabel
-            control={<Checkbox name="brand" onChange={() => dispatch(clearAllBrands())} />}
-            label={"CLEAR ALL"}
-            checked={activeBrands.length == 0 ? true : false}
+            checked={activeBrands.length == brands.length ? true : false}
           />
           {brands.map((el) => {
             return (
