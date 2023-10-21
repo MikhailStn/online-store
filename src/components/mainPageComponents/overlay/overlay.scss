@@ -1,0 +1,52 @@
+.overlay {
+  height: calc(100vh - 60px);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  background-attachment: fixed;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: fixed;
+    background-image: url("../../../assets/images/overlay.jpg");
+    height: 100vh;
+    max-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  &__info {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 100;
+    text-align: center;
+    width: 80%;
+    transition: 2s;
+    cursor: default;
+    text-shadow: rgb(195, 0, 255) 1px 0 10px;
+  }
+
+  @media (max-width: 460px) {
+    &__info {
+      font-size: 24px;
+    }
+  }
+}

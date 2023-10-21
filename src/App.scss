@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/nunito-sans.ttf");
+}
+
+@font-face {
+  font-family: "Nunito Italic";
+  src: url("./assets/fonts/nunito-italic.ttf");
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url("./assets/fonts/lobster.ttf");
+}
+
+$italic-font: "Nunito Italic";
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font: 18px "Nunito";
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+}
+
+.main {
+  padding-top: 60px;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main__title {
+  font-size: 78px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.464);
+  cursor: default;
+}
+
+.mobile__content_1279 {
+  display: none;
+}
+
+.mobile__content_767 {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .mobile__content_1279 {
+    display: flex;
+  }
+
+  .main__title {
+    font-size: 42px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile__content_767 {
+    display: flex;
+  }
+}

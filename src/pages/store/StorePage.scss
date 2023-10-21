@@ -1,0 +1,152 @@
+.store {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    max-width: 1280px;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin: 0 auto;
+    row-gap: 40px;
+  }
+
+  &__content {
+    display: flex;
+    row-gap: 40px;
+    justify-content: space-between;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+  }
+
+  &__pages_btns {
+    display: flex;
+    column-gap: 10px;
+  }
+
+  &__pagination_btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 50%;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: 45% center;
+    transition: 0.3s;
+  }
+
+  &__arrow-left {
+    background-image: url("../../assets/icons/left-arrow.png");
+  }
+
+  &__arrow-right {
+    background-image: url("../../assets/icons/right-arrow.png");
+  }
+
+  &__pages_btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 24px;
+    transition: 0.3s;
+  }
+
+  &__pages_btn:hover,
+  &__pagination_btn:hover {
+    background-color: rgba(0, 0, 0, 0.089);
+  }
+
+  &__active_page {
+    background-color: #1976d2;
+    color: #fff;
+  }
+
+  &__active_page:hover {
+    background-color: #1976d2;
+    color: #fff;
+  }
+
+  &__btn_show {
+    text-transform: uppercase;
+    border: 1px solid #1976d25e;
+    background-color: transparent;
+    color: #1976d2;
+    border-radius: 5px;
+    transition: 0.3s;
+    height: 40px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  &__btn_show_active {
+    background-color: #1976d2;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  &__pages_select {
+    display: flex;
+    align-items: center;
+    display: none;
+    column-gap: 20px;
+  }
+
+  &__pages_pagination_select {
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    outline: none;
+    width: 70px;
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  @media (max-width: 1279px) {
+    &__content {
+      flex-direction: column;
+      align-items: center;
+      max-width: 795px;
+      margin: 0 auto;
+    }
+
+    &__pagination_btn,
+    &__pages_btns {
+      display: none;
+    }
+
+    &__pages_select {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__content {
+      row-gap: 10px;
+      max-width: 514;
+    }
+
+    &__btn_show {
+      margin: 0 auto;
+      margin-bottom: 40px;
+      width: 237px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__wrapper {
+      padding: 40px 20px;
+    }
+  }
+}
