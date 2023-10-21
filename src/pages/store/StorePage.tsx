@@ -50,7 +50,9 @@ export function StorePage() {
   const [filtersDisplay, setFiltersDisplay] = useState(window.innerWidth > 1279 ? "flex" : "none");
 
   window.addEventListener("resize", () => {
-    setFiltersDisplay(window.innerWidth > 1279 ? "flex" : "none");
+    if (window.innerWidth > 1279) {
+      setFiltersDisplay("flex");
+    }
   });
 
   return (

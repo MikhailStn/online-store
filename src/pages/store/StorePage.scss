@@ -85,7 +85,7 @@
     border-radius: 5px;
     transition: 0.3s;
     height: 40px;
-    width: 120px;
+    width: 150px;
     justify-content: center;
     align-items: center;
     margin-right: auto;
@@ -120,6 +120,15 @@
       max-width: 795px;
       margin: 0 auto;
     }
+
+    &__pagination_btn,
+    &__pages_btns {
+      display: none;
+    }
+
+    &__pages_select {
+      display: flex;
+    }
   }
 
   @media (max-width: 600px) {
@@ -132,15 +141,6 @@
       margin: 0 auto;
       margin-bottom: 40px;
       width: 237px;
-    }
-
-    &__pagination_btn,
-    &__pages_btns {
-      display: none;
-    }
-
-    &__pages_select {
-      display: flex;
     }
   }
 
