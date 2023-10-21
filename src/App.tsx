@@ -13,7 +13,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
-        <Route path="/404" element={<Page404 />}></Route>
         <Route path="/store" element={<StorePage />}></Route>
         <Route path="/blog" element={<BlogPage />}></Route>
         <Route path="/cart" element={<CartPage />}></Route>
@@ -37,6 +36,7 @@ function App() {
             }
           ></Route>
         ))}
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   );

@@ -101,6 +101,32 @@ export function StorePage() {
                 </button>
               ))}
             </div>
+            <div className="store__pages_select">
+              <p>Page:</p>
+              <select
+                name="pagination"
+                className="store__pages_pagination_select"
+                value={currentPage}
+                onChange={(e) => {
+                  dispatch(setPage(e.target.value));
+                  dispatch(setProductsVisibility());
+                  window.scrollTo(0, 0);
+                }}
+              >
+                {pagesArr.map((el, i) => (
+                  <option
+                    key={el + i}
+                    onClick={() => {
+                      dispatch(setPage(el));
+                      dispatch(setProductsVisibility());
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    {el}
+                  </option>
+                ))}
+              </select>
+            </div>
             <button
               className="store__pagination_btn store__arrow-right"
               onClick={() => {

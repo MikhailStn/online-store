@@ -90,7 +90,7 @@ export function Header() {
                   Store
                 </Link>
               </li>
-              <li className="header__menu_li">
+              <li className="header__menu_li" style={{ display: "none" }}>
                 <Link to="/blog" className={state.classNameBlog} onClick={() => dispatch(setActiveBlog())}>
                   Blog
                 </Link>
@@ -110,7 +110,7 @@ export function Header() {
                 Store
               </Link>
             </li>
-            <li className="header__nav_li">
+            <li className="header__nav_li" style={{ display: "none" }}>
               <Link to="/blog" className={state.classNameBlog} onClick={() => dispatch(setActiveBlog())}>
                 Blog
               </Link>

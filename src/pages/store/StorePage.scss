@@ -88,13 +88,29 @@
     width: 120px;
     justify-content: center;
     align-items: center;
-    margin-right: auto; 
+    margin-right: auto;
   }
 
   &__btn_show_active {
     background-color: #1976d2;
     color: #fff;
     transition: 0.3s;
+  }
+
+  &__pages_select {
+    display: flex;
+    align-items: center;
+    display: none;
+    column-gap: 20px;
+  }
+
+  &__pages_pagination_select {
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    outline: none;
+    width: 70px;
+    height: 40px;
+    padding: 0 10px;
   }
 
   @media (max-width: 1279px) {
@@ -116,6 +132,15 @@
       margin: 0 auto;
       margin-bottom: 40px;
       width: 237px;
+    }
+
+    &__pagination_btn,
+    &__pages_btns {
+      display: none;
+    }
+
+    &__pages_select {
+      display: flex;
     }
   }
 

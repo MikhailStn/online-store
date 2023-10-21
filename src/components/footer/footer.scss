@@ -47,6 +47,7 @@
     margin: 0;
     cursor: pointer;
     font-weight: bold;
+    text-decoration: none;
   }
 
   &__block_list {
@@ -57,11 +58,19 @@
     padding: 0;
     font-weight: 100;
     row-gap: 20px;
+    margin: 0;
   }
 
   &__block_link {
     font-weight: 100;
     color: #e0e0e0ad;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  &__block_link:hover {
+    color: #fff;
   }
 
   &__social_link {
@@ -111,10 +120,55 @@
   &__block_button {
     background-color: #fff !important;
   }
+
+  @media (max-width: 1000px) {
+    &__blocks {
+      display: grid;
+      grid-template-columns: 150px 150px 150px;
+      row-gap: 40px;
+    }
+
+    &__block_title,
+    &__block__li {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 570px) {
+    &__blocks {
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+    }
+
+    &__block_title,
+    &__block__li {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__social {
+      justify-content: center;
+    }
+
+    &__form {
+      max-width: 320px;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    &__block_button {
+      width: 100%;
+    }
+  }
 }
 
 .youtube {
   background-image: url("../../assets/icons/youtube.png");
+  background-size: 95%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .telegram {

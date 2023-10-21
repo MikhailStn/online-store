@@ -34,65 +34,95 @@ export function Footer() {
       <div className="footer__content">
         <div className="footer__blocks">
           <div className="footer__block">
-            <h2 className="footer__block_title">Company</h2>
+            <a className="footer__block_title" href="#">
+              Company
+            </a>
             <ul className="footer__block_list">
               <li className="footer__block__li">
-                <a className="footer__block_link">About us</a>
+                <a className="footer__block_link" href="#">
+                  About us
+                </a>
               </li>
               <li className="footer__block__li">
-                <a className="footer__block_link">News</a>
+                <a className="footer__block_link" href="#">
+                  News
+                </a>
               </li>
               <li className="footer__block__li">
-                <a className="footer__block_link">Politics</a>
+                <a className="footer__block_link" href="#">
+                  Politics
+                </a>
               </li>
             </ul>
           </div>
           <div className="footer__block">
-            <h2 className="footer__block_title">Information</h2>
+            <a className="footer__block_title" href="#">
+              Information
+            </a>
             <ul className="footer__block_list">
               <li className="footer__block__li">
-                <a className="footer__block_link">Help</a>
+                <a className="footer__block_link" href="#">
+                  Help
+                </a>
               </li>
               <li className="footer__block__li">
-                <a className="footer__block_link">Payment terms</a>
+                <a className="footer__block_link" href="#">
+                  Payment terms
+                </a>
               </li>
               <li className="footer__block__li">
-                <a className="footer__block_link">Delivery terms</a>
+                <a className="footer__block_link" href="#">
+                  Delivery terms
+                </a>
               </li>
               <li className="footer__block__li">
-                <a className="footer__block_link">Exchange/Return</a>
+                <a className="footer__block_link" href="#">
+                  Exchange/Return
+                </a>
               </li>
             </ul>
           </div>{" "}
           <div className="footer__block">
-            <h2 className="footer__block_title">Help</h2>
+            <a className="footer__block_title" href="#">
+              Help
+            </a>
             <ul className="footer__block_list">
               <li className="footer__block__li">
-                <a className="footer__block_link">Blog</a>
+                <a className="footer__block_link" href="#">
+                  Blog
+                </a>
               </li>
               <li className="footer__block__li">
-                <a className="footer__block_link">Brands</a>
+                <a className="footer__block_link" href="/store">
+                  Brands
+                </a>
               </li>
               <li className="footer__block__li">
-                <a className="footer__block_link">FAQ</a>
+                <a className="footer__block_link" href="#">
+                  FAQ
+                </a>
               </li>
             </ul>
           </div>
           <div className="footer__block">
-            <h2 className="footer__block_title">Subscribe us</h2>
+            <a className="footer__block_title" href="#">
+              Subscribe us
+            </a>
             <form className="footer__form">
-              <input required type="email" name="email" className="footer__block_input" placeholder="E-mail"></input>
+              <input required type="email" name="email" className="footer__block_input" placeholder="E-mail" autoComplete="email"></input>
               <Button variant="outlined" className="footer__block_button" type="submit">
                 Subscribe
               </Button>
             </form>
           </div>
           <div className="footer__block">
-            <h2 className="footer__block_title">Social Media</h2>
+            <a className="footer__block_title" href="#">
+              Social Media
+            </a>
             <div className="footer__social">
               <a className="footer__social_link youtube" href="#"></a>
-              <a className="footer__social_link telegram"></a>
-              <a className="footer__social_link vk"></a>
+              <a className="footer__social_link telegram" href="#"></a>
+              <a className="footer__social_link vk" href="#"></a>
             </div>
           </div>
         </div>
