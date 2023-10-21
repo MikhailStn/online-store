@@ -61,7 +61,8 @@
     margin: 0;
   }
 
-  &__block_link {
+  &__block_link,
+  &__github_link {
     font-weight: 100;
     color: #e0e0e0ad;
     cursor: pointer;
@@ -69,7 +70,8 @@
     transition: 0.3s;
   }
 
-  &__block_link:hover {
+  &__block_link:hover,
+  &__github_link:hover {
     color: #fff;
   }
 
@@ -114,11 +116,18 @@
   &__form {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 40px;
   }
 
   &__block_button {
     background-color: #fff !important;
+  }
+
+  &__github {
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
   }
 
   @media (max-width: 1000px) {

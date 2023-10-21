@@ -126,7 +126,10 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <p className="footer__date">{new Date().getFullYear()}</p>
+        <div className="footer__github">
+          <p className="footer__date">{new Date().getFullYear()}</p>
+          <a className="footer__github_link" href="https://github.com/mikhailstn" target="blank">My GitHub</a>
+        </div>
       </div>
     </div>
   );
