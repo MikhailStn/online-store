@@ -77,10 +77,45 @@
     color: #fff;
   }
 
+  &__btn_show {
+    text-transform: uppercase;
+    border: 1px solid #1976d25e;
+    background-color: transparent;
+    color: #1976d2;
+    border-radius: 5px;
+    transition: 0.3s;
+    height: 40px;
+    width: 120px;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto; 
+  }
+
+  &__btn_show_active {
+    background-color: #1976d2;
+    color: #fff;
+    transition: 0.3s;
+  }
+
   @media (max-width: 1279px) {
     &__content {
       flex-direction: column;
       align-items: center;
+      max-width: 795px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__content {
+      row-gap: 10px;
+      max-width: 514;
+    }
+
+    &__btn_show {
+      margin: 0 auto;
+      margin-bottom: 40px;
+      width: 237px;
     }
   }
 

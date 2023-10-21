@@ -61,6 +61,7 @@ export function ProductPage(props: Product) {
               <Button
                 variant="outlined"
                 sx={{ margin: "20px 0" }}
+                className="product__add_btn"
                 onClick={(e) => {
                   e.preventDefault();
                   productsArray.includes(props.id) ? remove() : add();

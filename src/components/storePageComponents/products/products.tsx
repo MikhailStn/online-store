@@ -5,7 +5,11 @@ import { Select, Option } from "@mui/joy";
 import { setSortBy } from "../../../store/filtersOptions";
 import { useEffect, useState } from "react";
 
-export function Products() {
+type Props = {
+  display: string;
+};
+
+export function Products(props: Props) {
   const products = useAppSelector((state) => state.storeList.prodList);
   const currentSortBy = useAppSelector((state) => state.filtersOptions.sortBy);
   const dispatch = useAppDispatch();
@@ -51,7 +55,7 @@ export function Products() {
     <div className="items__wrapper">
       <div className="items__filters">
         <p className="items__filters_counter">{products.length} products found</p>
-        <Select className="items__filters_select" value={currentSort} name="sort">
+        <Select className="items__filters_select" value={currentSort} name="sort" sx={{display: props.display}}>
           <Option className="items__filters_Option" id="sort-Option" value="Sort by" disabled>
             Sort by:
           </Option>

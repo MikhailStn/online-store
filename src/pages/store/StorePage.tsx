@@ -47,6 +47,12 @@ export function StorePage() {
     dispatch(setProductsVisibility());
   }, [products]);
 
+  const [filtersDisplay, setFiltersDisplay] = useState(window.innerWidth > 1279 ? "flex" : "none");
+
+  window.addEventListener("resize", () => {
+    setFiltersDisplay(window.innerWidth > 1279 ? "flex" : "none");
+  });
+
   return (
     <div id="store-page">
       <Header></Header>
@@ -54,8 +60,20 @@ export function StorePage() {
         <div className="store__wrapper">
           <h2 className="store__title main__title">store</h2>
           <div className="store__content">
-            <Filters />
-            <Products />
+            <button
+              className={
+                filtersDisplay == "none"
+                  ? "store__btn_show mobile__content_1279"
+                  : "store__btn_show store__btn_show_active mobile__content_1279"
+              }
+              onClick={() => {
+                filtersDisplay == "none" ? setFiltersDisplay("flex") : setFiltersDisplay("none");
+              }}
+            >
+              {filtersDisplay == "none" ? "filters ▼" : "filters ▲"}
+            </button>
+            <Filters display={filtersDisplay} />
+            <Products display={filtersDisplay} />
           </div>
           <div className="store__pagination" style={visiblePagination}>
             <button

@@ -14,7 +14,11 @@ import { setPrice, setStock, setBrands, setSearchValue, setInitial, setAllBrands
 import { Button } from "@mui/joy";
 import { setPage } from "../../../store/storeList";
 
-export function Filters() {
+type Props = {
+  display: string;
+};
+
+export function Filters(props: Props) {
   const dispatch = useAppDispatch();
   const price = useAppSelector((state) => state.filtersOptions.price);
   const stock = useAppSelector((state) => state.filtersOptions.stock);
@@ -143,68 +147,66 @@ export function Filters() {
   }, [price, stock, sortBy, searchValue, activeBrands]);
 
   return (
-    <div className="filters">
+    <div className="filters" style={{ display: props.display }}>
       <p className="filters__sub">filters</p>
       <div className="filters__content">
-        <div className="filters__visible">
-          <Button
-            className="filters__button"
-            variant="outlined"
-            sx={{ margin: "20px 0", fontWeight: "400", fontSize: "18px" }}
-            onClick={() => {
-              dispatch(setInitial());
-            }}
-          >
-            RESET
-          </Button>
-          <TextField
-            className="filters__search"
-            variant="standard"
-            placeholder="Search"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            value={searchValue}
-            onChange={(e) => {
-              dispatch(setSearchValue(e.target.value));
-            }}
-          ></TextField>
-          <p>Price</p>
-          <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
-            <Slider max={maxPrice()} min={minPrice()} value={price} onChange={handleChangePrice} valueLabelDisplay="auto" />
-          </Box>
-          <p>Stock</p>
-          <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
-            <Slider max={maxStock()} min={minStock()} value={stock} onChange={handleChangeStock} valueLabelDisplay="auto" />
-          </Box>
-          <p>Brands</p>
-          <FormGroup sx={{ paddingLeft: "15px" }}>
-            <FormControlLabel
-              control={<Checkbox name="brand" onChange={() => dispatch(setAllBrands())} />}
-              label={"SHOW ALL"}
-              checked={activeBrands == brands ? true : false}
-            />
-            <FormControlLabel
-              control={<Checkbox name="brand" onChange={() => dispatch(clearAllBrands())} />}
-              label={"CLEAR ALL"}
-              checked={activeBrands.length == 0 ? true : false}
-            />
-            {brands.map((el) => {
-              return (
-                <FormControlLabel
-                  key={el}
-                  control={<Checkbox name="brand" onChange={() => dispatch(setBrands(el))} />}
-                  label={el}
-                  checked={activeBrands.includes(el) ? true : false}
-                />
-              );
-            })}
-          </FormGroup>
-        </div>
+        <TextField
+          className="filters__search"
+          variant="standard"
+          placeholder="Search"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+          value={searchValue}
+          onChange={(e) => {
+            dispatch(setSearchValue(e.target.value));
+          }}
+        ></TextField>
+        <p>Price</p>
+        <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
+          <Slider max={maxPrice()} min={minPrice()} value={price} onChange={handleChangePrice} valueLabelDisplay="auto" />
+        </Box>
+        <p>Stock</p>
+        <Box sx={{ maxWidth: "300px", marginLeft: "25px", width: "80%" }}>
+          <Slider max={maxStock()} min={minStock()} value={stock} onChange={handleChangeStock} valueLabelDisplay="auto" />
+        </Box>
+        <p>Brands</p>
+        <FormGroup sx={{ paddingLeft: "15px" }}>
+          <FormControlLabel
+            control={<Checkbox name="brand" onChange={() => dispatch(setAllBrands())} />}
+            label={"SHOW ALL"}
+            checked={activeBrands == brands ? true : false}
+          />
+          <FormControlLabel
+            control={<Checkbox name="brand" onChange={() => dispatch(clearAllBrands())} />}
+            label={"CLEAR ALL"}
+            checked={activeBrands.length == 0 ? true : false}
+          />
+          {brands.map((el) => {
+            return (
+              <FormControlLabel
+                key={el}
+                control={<Checkbox name="brand" onChange={() => dispatch(setBrands(el))} />}
+                label={el}
+                checked={activeBrands.includes(el) ? true : false}
+              />
+            );
+          })}
+        </FormGroup>
+        <Button
+          className="filters__button"
+          variant="outlined"
+          sx={{ margin: "20px 0", fontWeight: "400", fontSize: "18px" }}
+          onClick={() => {
+            dispatch(setInitial());
+          }}
+        >
+          RESET
+        </Button>
       </div>
     </div>
   );
